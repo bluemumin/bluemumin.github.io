@@ -1,0 +1,209 @@
+---
+layout: post
+title:  "20회 ADP 실기 python으로 준비 불가능 Part"
+subtitle:   "20회 ADP 실기 python으로 준비 불가능 Part"
+categories: PS
+tags: 기타
+comments: true
+---
+
+## ADP를 준비하는 중에, Python이 아닌 R로 작성된 Part 이다.
+
+사실 제목은 어그로다.
+
+하지만 절반은 어그로고 절반은 진실이다.
+
+무슨 소리인가 싶겠지만, 크게 2가지 Part는 python으로 준비하기 보다 R로 준비하는게 낫다.
+
+20줄 이상을 1 ~ 2줄로 끝낼 수 있다.
+
+이게 가능한 이유는 이전은 모르겠고
+
+19회 부터 local이 아닌 문제마다 jupyter notebook, R studio가 각각 준비되어 있어서
+
+python으로 전처리를 하고 R로 모델링을 진행하는 것이 가능하다.
+
+중간에 데이터를 내보내고 다시 불러와서 진행하고 설명 pdf나 csv로 결과물을 제출하면 되는 방식이기 때문이다.
+
+크게 2가지 Part를 R로 진행하는 것을 보이려 하는데
+
+첫 번째는 회귀 분석의 forward, backward 방식이다.
+
+sklearn은 수 많은 분류, 회귀 관련 패키지를 제공하지만
+
+회귀분석에서 변수 선택법인 forward, backward, stepwise 방법은 제공하지 않는다.
+
+https://datascience.stackexchange.com/questions/937/does-scikit-learn-have-forward-selection-stepwise-regression-algorithm
+
+를 보면 확인이 가능한데
+
+요약하자면, 해당 변수 선택법은 pvalue를 기반으로 하는데
+
+scikit-learn은 모델 학습에 대한 추론 적 접근 (유의성 테스트 등)을 의도적으로 회피하는 것이 주 된 이유입니다.
+
+그렇기 때문에, 이를 구현하려면 직접 구현해야되는데, ADP가 오픈북은 맞지만
+
+코드는 오프라인 오픈북이기에, 그걸 타이핑 하다가는 총 시간이 4시간을 주긴하지만 
+
+문제가 이것만 있는 것도 아니기에 코드 짜다가 끝날 수 있다.
+
+두 번째는 군집 분석인 SOM이다.
+
+일단 파이썬에서 패키지는 있지만, 시험에서 제공되는 패키지에는 없다.
+
+만약 som 패키지가 갑자기 포함되어 있다면, 준비해보는 것도 좋을듯 하다.
+
+시험에 나오기 때문에, python 사용자들을 위한 배려로 넣어놨을 가능성이 높다고 본다.
+
+som을 불러와서 군집분석을 수행하고, 해당 결과를 다시 회귀 분석의 개선 용도로 넣은 문제가 나온 적이 있기에
+
+해당 part가 나왔는데, 대비가 안 되있으면 합격 가능성이 떨어질 수 있다.
+
+som으로 군집 분석을 수행하고 kmeans로 그룹화를 시키고 그걸 회귀 분석의 독립 변수로 추가하는 듯 하다.
+
+다음은 해당 R 코드들이다.
+
+------------------------------------------------
+
+## R 회귀 분석
+
+> library(MASS)
+
+> small.model <- lm(Fertility ~1 , data = swiss)
+
+> full.model <- lm(Fertility ~. , data = swiss)
+> 
+> step.model <- step(small.model, scope = list(lower ~ 1, 
++                                              upper = ~Agriculture+Examination+Education+Catholic+Infant.Mortality), direction = 'forward', trace =FALSE)
+> summary(step.model)
+
+Call:
+lm(formula = Fertility ~ Education + Catholic + Infant.Mortality + 
+    Agriculture, data = swiss)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.6765  -6.0522   0.7514   3.1664  16.1422 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      62.10131    9.60489   6.466 8.49e-08 ***
+Education        -0.98026    0.14814  -6.617 5.14e-08 ***
+Catholic          0.12467    0.02889   4.315 9.50e-05 ***
+Infant.Mortality  1.07844    0.38187   2.824  0.00722 ** 
+Agriculture      -0.15462    0.06819  -2.267  0.02857 *  
+
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.168 on 42 degrees of freedom
+Multiple R-squared:  0.6993,	Adjusted R-squared:  0.6707 
+F-statistic: 24.42 on 4 and 42 DF,  p-value: 1.717e-10
+
+> 
+> step.model <- step(full.model, scope = list(lower ~ 1, 
++                                             upper = ~Agriculture+Examination+Education+Catholic+Infant.Mortality), direction = 'backward', trace =FALSE)
+> summary(step.model)
+
+Call:
+lm(formula = Fertility ~ Agriculture + Education + Catholic + 
+    Infant.Mortality, data = swiss)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.6765  -6.0522   0.7514   3.1664  16.1422 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      62.10131    9.60489   6.466 8.49e-08 ***
+Agriculture      -0.15462    0.06819  -2.267  0.02857 *  
+Education        -0.98026    0.14814  -6.617 5.14e-08 ***
+Catholic          0.12467    0.02889   4.315 9.50e-05 ***
+Infant.Mortality  1.07844    0.38187   2.824  0.00722 ** 
+
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.168 on 42 degrees of freedom
+Multiple R-squared:  0.6993,	Adjusted R-squared:  0.6707 
+F-statistic: 24.42 on 4 and 42 DF,  p-value: 1.717e-10
+
+> 
+> step.model <- step(small.model, scope = list(lower ~ 1, 
++                                              upper = ~Agriculture+Examination+Education+Catholic+Infant.Mortality), direction = 'both', trace =FALSE)
+> summary(step.model)
+
+Call:
+lm(formula = Fertility ~ Education + Catholic + Infant.Mortality + 
+    Agriculture, data = swiss)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-14.6765  -6.0522   0.7514   3.1664  16.1422 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      62.10131    9.60489   6.466 8.49e-08 ***
+Education        -0.98026    0.14814  -6.617 5.14e-08 ***
+Catholic          0.12467    0.02889   4.315 9.50e-05 ***
+Infant.Mortality  1.07844    0.38187   2.824  0.00722 ** 
+Agriculture      -0.15462    0.06819  -2.267  0.02857 *  
+
+
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.168 on 42 degrees of freedom
+Multiple R-squared:  0.6993,	Adjusted R-squared:  0.6707 
+F-statistic: 24.42 on 4 and 42 DF,  p-value: 1.717e-10
+
+
+결과가 많아서 그러지 실제로는 몇 줄 안 되고
+
+forward 방식을 할 때는 시작이 null인 모형으로
+
+backward 방식으로 할 때는 시작이 모든 변수가 있는 모형으로 하고
+
+both는 null이든 모든 변수가 있든 상관이 없긴 하지만 그래도 null인 것으로 했다.
+
+-----------------------------------
+
+다음은 SOM이다.
+
+> library(NbClust)
+> 
+> iris2 = iris[-5]
+
+> iris3 = scale(iris2)
+
+> som_model = som(iris3, grid = somgrid(3,5,"rectangular"))
+> 
+> abc = data.frame(matrix(unlist(som_model$codes), nrow=15, byrow=FALSE))
+> 
+> km <- kmeans(abc, centers = 4)
+
+> km
+
+K-means clustering with 4 clusters of sizes 3, 6, 3, 3
+
+Cluster means:
+          X1         X2         X3          X4
+1 -0.6106488  1.1543329 -1.0068961 -0.97481477
+2  0.8487085 -0.1442877  0.8263408  0.78479761
+3 -0.1845528 -1.2967528  0.1956016  0.07628279
+4 -1.1146539 -0.4366328 -0.9768503 -0.93629869
+
+Clustering vector:
+ [1] 1 1 4 1 4 4 2 3 3 2 2 3 2 2 2
+
+Within cluster sum of squares by cluster:
+[1] 2.185238 4.654779 1.556499 1.955912
+ (between_SS / total_SS =  78.5 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+[6] "betweenss"    "size"         "iter"         "ifault"     
+
+필요하다면 som을 한 이후에 plot만 사용해서 시각화가 가능하다.
+
+이제 군집분석으로 원하는 군집끼리 묶으려고 하는 경우에는 kmeans를 사용해서 한 번 더 묶는 듯 하다.
+
+이렇게 코드가 짧고 결과만 길기 때문에 해석을 할 줄 안다면 R로 코드를 구성하는 것이 훨씬 시간면에서 이득이라고 생각된다.

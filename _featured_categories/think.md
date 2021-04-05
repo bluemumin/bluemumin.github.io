@@ -1,10 +1,10 @@
 ---
 layout: list
-title: Think
+title: think
 slug: think
 menu: true
 submenu: false
-order: 1
+order: 9
 description: >
-  살면서 깨달은 아이디어 및 지혜, IT에 관련된 생각, 그리고 평소 쓰고 싶었던 글.  
+  현재 제가 하고 있는 생각을 정리할 겸 남기는 포스팅 메뉴입니다.
 ---

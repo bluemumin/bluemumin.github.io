@@ -3,8 +3,8 @@ layout: list
 title: Review
 slug: review
 menu: true
-submenu: false
-order: 6
+submenu: true
+order: 8
 description: >
-  IT 서적 및 그 외 다양한 서적을 읽고 작성한 리뷰 모음.
+  제가 좋아하는 것들, 본 것 들에 대해서 리뷰합니다.(Data 분석 관련 X)
 ---
