@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bluemumin.github.io/apt-deal-info/sitemap.xml
