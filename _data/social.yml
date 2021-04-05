@@ -199,3 +199,7 @@
     name: PayPal
     icon: icon-paypal
     prepend: "https://www.paypal.me/"
+  kakao:
+    name: kakao
+    icon: icon-telegram
+    prepend: "https://open.kakao.com/"
