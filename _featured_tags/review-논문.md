@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: 기타
-slug: 기타
+title: 논문
+slug: 논문
 category: review
 menu: false
-order: 4
+order: 2
 ---
