@@ -349,4 +349,6 @@ print(f'1차 차분 p-value: {result[1]:.10f}')
 
 차분을 수행한 이후의 pvalue가 0.001보다 작으므로 대립가설을 채택한다.(정상시계열)
 
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
 
+<https://github.com/bluemumin/ADP_certificate_preperation>

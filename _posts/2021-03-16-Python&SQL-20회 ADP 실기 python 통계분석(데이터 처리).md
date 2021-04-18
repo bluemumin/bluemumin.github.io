@@ -2150,5 +2150,7 @@ Counter(y_resampled)
 
 
 
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
 
+<https://github.com/bluemumin/ADP_certificate_preperation>
 

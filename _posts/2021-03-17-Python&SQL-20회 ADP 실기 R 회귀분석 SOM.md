@@ -207,3 +207,8 @@ Available components:
 이제 군집분석으로 원하는 군집끼리 묶으려고 하는 경우에는 kmeans를 사용해서 한 번 더 묶는 듯 하다.
 
 이렇게 코드가 짧고 결과만 길기 때문에 해석을 할 줄 안다면 R로 코드를 구성하는 것이 훨씬 시간면에서 이득이라고 생각된다.
+
+
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
+
+<https://github.com/bluemumin/ADP_certificate_preperation>
