@@ -49,8 +49,8 @@ comments: true
 
 해당 대회를 들어가보면 1등으로 기록은 되어있지만, 코드는 없는 상황이다.
 
-문제는 나도 노트북이 고장이 나서 포맷하느라 plotly로 해놓은 1등 자료는 다 날아가버린 상황이다.
+<https://github.com/bluemumin/dongguk_university_graduate_report_baseball_OPS_end>
 
-해당 plotly를 이용하여서 시각화 하는 방법은 
+학사 논문용으로 일부 내용을 수정하였고,
 
-나중에 KBO 예측 논문 자료를 작성한 것을 바탕으로 그나마 살려볼 생각이다.
+plotly과 크롤링까지 추가해서 만든 버전은 private로 따로 링크를 해두었다.
