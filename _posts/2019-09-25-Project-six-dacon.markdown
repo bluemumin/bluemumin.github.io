@@ -21,7 +21,7 @@ comments: true
 
 ### 사용 방법 (모델링)
 
-스탯티즈 사이트 크롤링 <http://www.statiz.co.kr/> 및 결측치 제거, 모델링 용도 목적변수 생성,
+[스탯티즈 사이트](http://www.statiz.co.kr/) 크롤링 및 결측치 제거, 모델링 용도 목적변수 생성,
 
 경기수 미달 선수 이상치 처리 작업
 
@@ -37,7 +37,7 @@ comments: true
 
 - 수상 인터뷰 및 등수 공유
 
-	인터뷰 : <https://dacon.io/more/interview/43>
+	[인터뷰](https://dacon.io/more/interview/43)
 
 	(public ranking) (18/94등) (19.07.19)
 
@@ -49,14 +49,11 @@ comments: true
 
 해당 대회를 들어가보면 1등으로 기록은 되어있지만, 코드는 없는 상황이다.
 
-<https://github.com/bluemumin/dongguk_university_graduate_report_baseball_OPS_end>
 
-학사 논문용으로 일부 내용을 수정하였고,
+[학사 논문용](https://github.com/bluemumin/dongguk_university_graduate_report_baseball_OPS_end) 으로 일부 내용을 수정하였고,
 
 plotly과 크롤링까지 추가해서 만든 대회용 버전은
 
 private로 따로 링크를 해두었다.
 
 크롤링 버전때문에 아마 private를 public으로 바꿀 생각은 없다.
-
-만약에 해당 코드가 궁금하다면 오픈카톡이나 메일을 주시면 됩니다.

@@ -7,7 +7,7 @@ tags: school
 comments: true
 ---
 
-캐글 데이터 링크 첨부 : <https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009>
+[캐글 데이터 링크](https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009)
 
 0.변수설명(한글)
 

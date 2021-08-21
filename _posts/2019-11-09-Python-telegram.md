@@ -7,8 +7,7 @@ tags: Tip
 comments: true
 ---
 
-#### 글을 작성하기 앞서 해당 텔레그램을 활용한 알림을 받는 방법을 찾은 출처는 다음과 같습니다
-<https://steemit.com/kr/@sifnax/python-5-telegram-api>
+#### 글을 작성하기 앞서 해당 텔레그램을 활용한 알림을 받는 방법을 찾은 [출처](https://steemit.com/kr/@sifnax/python-5-telegram-api) 입니다.
 
 행의 갯수가 많아 간단한 코드가 오래 실행되는 경우,
 <br/>
