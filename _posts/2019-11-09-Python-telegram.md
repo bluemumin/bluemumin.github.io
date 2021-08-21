@@ -8,6 +8,7 @@ comments: true
 ---
 
 #### 글을 작성하기 앞서 해당 텔레그램을 활용한 알림을 받는 방법을 찾은 [출처](https://steemit.com/kr/@sifnax/python-5-telegram-api) 입니다.
+<br/>
 
 행의 갯수가 많아 간단한 코드가 오래 실행되는 경우,
 <br/>
@@ -22,19 +23,19 @@ comments: true
 
 1.일단 텔레그램을 설치하고 가장 처음에 실행이 되는 창입니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t1.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t1.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
 2.이후 검색창에 BotFather를 검색합니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t2.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t2.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
 3.검색하여 나오는 BotFather클릭하시면 다음과 같이 나옵니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t3.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t3.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -42,7 +43,7 @@ comments: true
 <br/>
   저희는 코드 완료 알림을 받기 위한 봇을 만들기 위해 /newbot을 입력해줍니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t4.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t4.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -50,7 +51,7 @@ comments: true
 <br/>
    반드시 bot으로 끝나야 된다고 메세지가 옵니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t5.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t5.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -58,19 +59,19 @@ comments: true
 <br/>
   해당 가려진 부분을 복사하셔서 사용하시면 됩니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t6.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t6.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
 7.이제 만든 bot의 이름을 겁색하여, 코드완료를 위한 알림이 오기 위한 사전 작업을 시작합니다.
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t7.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t7.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
 8.start 버튼을 누르고, 간단한 채팅으로 아무 메세지를 입력해주세요
 <br/>
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t8.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t8.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -87,7 +88,7 @@ comments: true
   (오류가 발생하시면 해당 코드만 다시 실행해주세요)
 <br/>
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t9.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t9.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -133,7 +134,7 @@ updates
 
 <br/>
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t11.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t11.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -167,7 +168,7 @@ else:
 
 코드에 error가 발생하지 않았기 때문에, else에  있는 text가 그대로 텔레그램 메세지로 도착한 것을 볼 수 있습니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t13.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t13.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -188,7 +189,7 @@ else:
 
 <br/>
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/telegram/t15.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/telegram/t15.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
