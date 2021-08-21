@@ -13,13 +13,9 @@ comments: true
 
 <br/>
 
-이론적인 내용이 많아서 실제로 코딩 양이 많지는 않지만, fork 해서 연습한 자료의 깃허브 주소입니다.
+이론적인 내용이 많아서 실제로 코딩 양이 많지는 않지만, fork 해서 연습한 자료의 [깃허브 주소](https://github.com/bluemumin/deep-learning-from-scratch-2)입니다.
 
-<https://github.com/bluemumin/deep-learning-from-scratch-2>
-
-출판사 및 책 설명이 있는 구매처 링크입니다.
-
-<https://www.hanbit.co.kr/store/books/look.php?p_code=B8950212853>
+출판사 및 책 설명이 있는 [구매처 링크](https://www.hanbit.co.kr/store/books/look.php?p_code=B8950212853)입니다.
 
 <img data-action="zoom" src='{{ "/assets/img/deeplearning2.jpg" | relative_url }}' alt='absolute'>
 

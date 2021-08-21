@@ -11,9 +11,7 @@ comments: true
 
 <br/>
 
-실제 실행된 결과를 ipynb 파일로 보고 싶으시다면 다음 링크로 이동해주시면 됩니다!
-
-<https://github.com/bluemumin/bluemumin.github.io/blob/master/_posts/html/intersection%20%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%9A%A9.ipynb>
+실제 실행된 결과를 ipynb 파일로 보고 싶으시다면 다음 [링크](https://github.com/bluemumin/bluemumin.github.io/blob/master/_posts/html/intersection%20%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%9A%A9.ipynb)로 이동해주시면 됩니다!
 
 <br/>
 
@@ -56,7 +54,7 @@ intersection, union, difference, symmetric_diffecence로
 
 다음은 실제 실행된 결과 입니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/list/post1.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/list/post1.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -95,7 +93,7 @@ list( set( diff(b1, b2) + diff(b2, b1) ) ) #대칭 차집합은 굳이 함수를
 
 다음은 실제 실행된 결과 입니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/list/post2.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/list/post2.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -124,6 +122,6 @@ diff(c1, c2)
 
 다음은 실제 실행된 결과 입니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/list/post3.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/list/post3.PNG" | relative_url }}' alt='absolute'>
 
 <br/>

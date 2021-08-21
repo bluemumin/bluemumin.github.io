@@ -11,9 +11,7 @@ comments: true
 
 <br/>
 
-실제 실행된 결과를 ipynb 파일로 보고 싶으시다면 다음 링크로 이동해주시면 됩니다!
-
-<https://github.com/bluemumin/bluemumin.github.io/blob/master/_posts/html/tfidf%20%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%9A%A9.ipynb>
+실제 실행된 결과를 ipynb 파일로 보고 싶으시다면 다음 [링크](https://github.com/bluemumin/bluemumin.github.io/blob/master/_posts/html/tfidf%20%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%9A%A9.ipynb)로 이동해주시면 됩니다!
 
 <br/>
 
