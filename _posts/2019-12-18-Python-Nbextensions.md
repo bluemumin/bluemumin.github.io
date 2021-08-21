@@ -2,8 +2,8 @@
 layout: post
 title:  "jupyter notebook Nbextensions 코드 숨기기 등 유용한 기능 설정"
 subtitle:   "jupyter notebook Nbextensions 코드 숨기기 등 유용한 기능 설정"
-categories: PS
-tags: Python
+categories: Python
+tags: Tip
 comments: true
 ---
 

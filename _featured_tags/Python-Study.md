@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Tip
-slug: Tip
+title: Study
+slug: Study
 category: Python
 menu: false
-order: 2
+order: 1
 ---

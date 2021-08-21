@@ -2,8 +2,8 @@
 layout: post
 title:  "list간의 집합 관계 표현 방법"
 subtitle:   "list간의 집합 관계 표현 방법"
-categories: PS
-tags: Python
+categories: Python
+tags: Tip
 comments: true
 ---
 

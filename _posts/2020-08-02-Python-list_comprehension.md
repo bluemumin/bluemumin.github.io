@@ -2,8 +2,8 @@
 layout: post
 title:  "python for문 사용과 list comprehension"
 subtitle:   "python for문 사용과 list comprehension"
-categories: PS
-tags: Python
+categories: Python
+tags: Tip
 comments: true
 ---
 

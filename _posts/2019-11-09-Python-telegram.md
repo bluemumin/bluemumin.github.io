@@ -3,7 +3,7 @@ layout: post
 title:  "python jupyter notebook 활용한 텔레그램 코드 완료 알림 받기!"
 subtitle:   "python jupyter notebook 활용한 텔레그램 코드 완료 알림 받기!"
 categories: Python
-tags: Python
+tags: Tip
 comments: true
 ---
 

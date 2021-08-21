@@ -2,8 +2,8 @@
 layout: post
 title:  "TF-IDF와 유사도 그리고 상관관계"
 subtitle:   "TF-IDF와 유사도 그리고 상관관계"
-categories: PS
-tags: Python
+categories: Python
+tags: Study
 comments: true
 ---
 
