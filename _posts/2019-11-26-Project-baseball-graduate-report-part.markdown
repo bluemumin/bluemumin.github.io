@@ -44,7 +44,7 @@ RandomForest Regressor 변수 중요도 세로 막대 그래프
 
 ##### 사용 방법 (모델링)
 
-선수명 수집 -> 스탯티즈 크롤링 <http://www.statiz.co.kr/> 및 목적 변수(YOPS 생성)
+선수명 수집 -> [스탯티즈](http://www.statiz.co.kr/) 크롤링 및 목적 변수(YOPS 생성)
 
 -> 선수 성적 관련 변수 추가, 포지션 & 타석 위치 그룹화, 다음 시즌 공의 반발계수 반영
 
@@ -62,7 +62,7 @@ RandomForest Regressor 변수 중요도 세로 막대 그래프
 
 (코드가 너무 길어 깃허브 블로그에는 포스팅 하지 않습니다.)
 
-<https://github.com/bluemumin/dongguk_university_graduate_report_baseball_OPS>
+[깃허브 링크](https://github.com/bluemumin/dongguk_university_graduate_report_baseball_OPS)
 
 - 작성 학사 논문 (설명) 공개 여부 : x
 

@@ -8,11 +8,9 @@ comments: true
 ---
 
 #### 글을 작성하기 앞서 해당 글을 작성하기 이전에
-#### Nbextensions의 기능을 알게 된 사이트는 다음과 같습니다.
+#### Nbextensions의 기능을 알게 된 [사이트](https://towardsdatascience.com/jupyter-notebook-extensions-517fa69d2231) 입니다.
 
 <br/>
-
-<https://towardsdatascience.com/jupyter-notebook-extensions-517fa69d2231>
 
 python을 사용 하는 사람들 중 일부는 jupyter notebook을 활용하여 분석을 할 것 입니다.
 
@@ -42,7 +40,7 @@ python을 사용 하는 사람들 중 일부는 jupyter notebook을 활용하여
 
 pip install jupyter_contrib_nbextensions 를 입력한다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/1.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/1.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -50,13 +48,13 @@ pip install jupyter_contrib_nbextensions 를 입력한다.
 
 jupyter contrib nbextension install 을 입력한다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/2.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/2.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
 3.1,2 실행 후 다시 jupyter notebook을 키면 Nbextensions가 추가가 된다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/3.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/3.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -68,7 +66,7 @@ jupyter contrib nbextension install 을 입력한다.
 
 설명한 부실한 경우가 있을 경우 구글 검색을 추천드립니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/4.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/4.PNG" | relative_url }}' alt='absolute'>
 
 Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가적인 설치 없이 바로 사용/비 사용이 가능하다는 것입니다.
 
@@ -82,9 +80,9 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
   
   코드에서 나온 결과물(변수명, 그래프 등)만 보이게 됩니다.
   
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/hide.gif" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/hide.gif" | relative_url }}' alt='absolute'>
 
-사진 출처 : <https://towardsdatascience.com/the-most-in-demand-tech-skills-for-data-scientists-d716d10c191d>
+[사진 출처](https://towardsdatascience.com/the-most-in-demand-tech-skills-for-data-scientists-d716d10c191d)
 
 <br/>
 
@@ -96,7 +94,7 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
    
    이동하고자 하는 목차를 선택하게 되면, 해당 목차로 이동을 하게 됩니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/목차.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/목차.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -104,7 +102,7 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
    
    빨간 상자에 있는 것을 체크하시면 됩니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/설정.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/설정.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -116,7 +114,7 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
   
   원활한 업무가 가능할 것입니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/time.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/time.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -130,7 +128,7 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
 
 (실제 datafrmae 저장은 아님)
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/sort.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/sort.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -142,7 +140,7 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
 
 (markdown 크기는 조절 안됨, 애초에 #갯수로 조절하기 때문으로 보임)
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/size.png" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/size.PNG" | relative_url }}' alt='absolute'>
 
 <br/>
 
@@ -158,9 +156,10 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
 
 (예전에는 잘 됬는데 지금은 local error로 되고 있어 사용하지 않습니다.)
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/888.gif" | relative_url }}' alt='absolute'>
 
-사진 출처 : <https://towardsdatascience.com/the-most-in-demand-tech-skills-for-data-scientists-d716d10c191d>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/888.gif" | relative_url }}' alt='absolute'>
+
+[사진 출처](https://towardsdatascience.com/the-most-in-demand-tech-skills-for-data-scientists-d716d10c191d)
 
 <br/>
 
@@ -172,9 +171,9 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
 
 아직까지는 이 정도까지는 필요하지 않을 것으로 보여 사용하지 않고 있습니다.
 
-<img data-action="zoom" src='{{ "/bluemumin.github.io/assets/img/nbextensions/variable.png" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/variable.png" | relative_url }}' alt='absolute'>
 
-사진 출처 : <https://towardsdatascience.com/the-most-in-demand-tech-skills-for-data-scientists-d716d10c191d>
+[사진 출처](https://towardsdatascience.com/the-most-in-demand-tech-skills-for-data-scientists-d716d10c191d)
 
 <br/>
 
