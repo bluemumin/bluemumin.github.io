@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: SQL
-slug: SQL
-category: Oracle
+title: Oracle
+slug: Oracle
+category: SQL
 menu: false
 order: 1
 ---
