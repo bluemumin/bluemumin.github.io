@@ -11,7 +11,7 @@ comments: true
 
 이전에 DB2, Oracle, Postgre, MS-SQL 4개의 DBMS를 각각 함수형태로 불러오는 것을 소개하였습니다.
 
-[해당 링크] (https://bluemumin.github.io/ps/2021/01/24/Python&SQL-python%EC%97%90%EC%84%9C-%EA%B0%81-DB-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EB%B2%95/)
+[해당 링크](https://bluemumin.github.io/python/2021/01/24/Python-python%EC%97%90%EC%84%9C-%EA%B0%81-DB-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EB%B2%95/)
 
 해당 버전을 살펴보던 중, 4개 DBMS의 입력 순서가 똑같으니
 
