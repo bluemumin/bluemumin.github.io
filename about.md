@@ -2,7 +2,7 @@
 layout: about
 title: About
 menu: true
-order: 50
+order: 500
 ---
 
 ## 소개
