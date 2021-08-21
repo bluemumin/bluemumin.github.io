@@ -58,6 +58,12 @@ sub : bluedice0504@gmail.com
 
 - SQL : SK하이닉스 DataLake 구축 중, DA(Data Architect) 업무 수행 중 습득
 
+<br/>
+
+----------------------------------------------------------
+
+<br/>
+
 - 동국대학교 학사 졸업 논문 : [KBO 다음 시즌 OPS 예측 (RandomForest Regressor)](https://bluemumin.github.io/project/2019/11/26/Project-baseball-graduate-report-part/)
   
 - 교육 : 빅데이터 청년인재 - 정당 논평, 자연어 처리 활용 뉴스 정치 성향 퍼센트 분류 모형 UI 구축
