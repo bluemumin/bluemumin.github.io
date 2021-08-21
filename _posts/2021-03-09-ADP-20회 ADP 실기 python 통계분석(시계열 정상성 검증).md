@@ -2,8 +2,8 @@
 layout: post
 title:  "20회 ADP 실기 대비 python 통계분석(시계열 정상성 검증)"
 subtitle:   "20회 ADP 실기 대비 python 통계분석(시계열 정상성 검증)"
-categories: PS
-tags: Python
+categories: ADP
+tags: ADP
 comments: true
 ---
 

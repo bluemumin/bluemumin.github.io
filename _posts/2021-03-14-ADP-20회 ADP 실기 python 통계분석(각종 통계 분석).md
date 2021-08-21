@@ -2,8 +2,8 @@
 layout: post
 title:  "20회 ADP 실기 python 통계분석(각종 검증)"
 subtitle:   "20회 ADP 실기 python 통계분석(각종 검증)"
-categories: PS
-tags: Python
+categories: ADP
+tags: ADP
 comments: true
 ---
 
