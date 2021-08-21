@@ -2148,9 +2148,5 @@ Counter(y_resampled)
 
     Counter({1.0: 76, 2.0: 76, 3.0: 76, 5.0: 76, 6.0: 76, 7.0: 76})
 
-
-
-20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
-
-<https://github.com/bluemumin/ADP_certificate_preperation>
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 [깃허브 링크](https://github.com/bluemumin/ADP_certificate_preperation) 입니다.
 

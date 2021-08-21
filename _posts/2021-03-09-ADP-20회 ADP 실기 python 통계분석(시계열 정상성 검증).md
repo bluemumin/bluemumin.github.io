@@ -29,7 +29,7 @@ comments: true
 
 날짜는 str 타입이고, price는 float 타입입니다.
 
-데이터는 https://www.blockchain.com/ko/charts/market-price?timespan=60days 링크로 이동하신 다음에
+데이터는 [링크](https://www.blockchain.com/ko/charts/market-price?timespan=60days) 로 이동하신 다음에
 
 export data를 하셔서 csv 파일로 받으시면 됩니다.
 
@@ -349,6 +349,4 @@ print(f'1차 차분 p-value: {result[1]:.10f}')
 
 차분을 수행한 이후의 pvalue가 0.001보다 작으므로 대립가설을 채택한다.(정상시계열)
 
-20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
-
-<https://github.com/bluemumin/ADP_certificate_preperation>
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 [깃허브 링크](https://github.com/bluemumin/ADP_certificate_preperation) 입니다.

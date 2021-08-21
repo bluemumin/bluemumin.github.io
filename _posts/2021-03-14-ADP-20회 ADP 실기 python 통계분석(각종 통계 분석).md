@@ -762,8 +762,5 @@ stats.ttest_rel(dat_M, dat_F)
 
     Ttest_relResult(statistic=-2.9868874599588247, pvalue=0.007578486289181322)
 
-
-20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
-
-<https://github.com/bluemumin/ADP_certificate_preperation>
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 [깃허브 링크](https://github.com/bluemumin/ADP_certificate_preperation) 입니다.
 

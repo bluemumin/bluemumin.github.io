@@ -11,13 +11,13 @@ comments: true
 
 이전에 DB2, Oracle, Postgre, MS-SQL 4개의 DBMS를 각각 함수형태로 불러오는 것을 소개하였습니다.
 
-<https://bluemumin.github.io/ps/2021/01/24/Python&SQL-python%EC%97%90%EC%84%9C-%EA%B0%81-DB-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EB%B2%95/>
+[해당 링크] (https://bluemumin.github.io/ps/2021/01/24/Python&SQL-python%EC%97%90%EC%84%9C-%EA%B0%81-DB-%EC%97%B0%EA%B2%B0%ED%95%98%EB%8A%94-%EB%B2%95/)
 
 해당 버전을 살펴보던 중, 4개 DBMS의 입력 순서가 똑같으니
 
 이를 하나의 함수로 또 묶어서 만들면 더 간단하게 사용이 가능하지 않을까 라는 생각으로 출발하였습니다.
 
-<https://github.com/bluemumin/python_db_connection>
+[깃허브 버전 링크](https://github.com/bluemumin/python_db_connection)
 
 제 깃허브에 python_db_con.py 파일로 올려놓은 상태입니다.
 

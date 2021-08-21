@@ -514,7 +514,4 @@ model.summary()
 </table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
 
 
-
-20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 깃허브 링크입니다.
-
-<https://github.com/bluemumin/ADP_certificate_preperation>
+20회 ADP 실기를 준비하면서 만든 notebook 파일에 대한 [깃허브 링크](https://github.com/bluemumin/ADP_certificate_preperation) 입니다.
