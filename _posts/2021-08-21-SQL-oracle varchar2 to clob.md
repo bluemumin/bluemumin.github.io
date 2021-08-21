@@ -2,8 +2,8 @@
 layout: post
 title:  "Oracle varchar2 to CLOB"
 subtitle:   "Oracle varchar2 to CLOB"
-categories: PS
-tags: SQL
+categories: SQL
+tags: Oracle
 comments: true
 ---
 

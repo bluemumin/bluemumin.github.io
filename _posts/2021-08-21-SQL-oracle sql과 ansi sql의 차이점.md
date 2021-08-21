@@ -2,8 +2,8 @@
 layout: post
 title:  "Oracle SQL VS ANSI SQL"
 subtitle:   "Oracle SQL VS ANSI SQL"
-categories: PS
-tags: SQL
+categories: SQL
+tags: Oracle
 comments: true
 ---
 
