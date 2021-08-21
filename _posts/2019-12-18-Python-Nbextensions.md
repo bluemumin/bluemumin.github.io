@@ -138,7 +138,7 @@ Nbextensions의 가장 좋은 점이라면, 이렇게 클릭 방식으로 추가
 
 코드 cell의 폰트 크기만 조절이 가능하게 할 수 있습니다.
 
-<img data-action="zoom" src='{{ "/assets/img/nbextensions/size.PNG" | relative_url }}' alt='absolute'>
+<img data-action="zoom" src='{{ "/assets/img/nbextensions/크기.png" | relative_url }}' alt='absolute'>
 
 <br/>
 
