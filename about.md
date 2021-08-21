@@ -58,20 +58,17 @@ sub : bluedice0504@gmail.com
 
 - SQL : SK하이닉스 DataLake 구축 중, DA(Data Architect) 업무 수행 중 습득
 
-- [동국대학교 학사 졸업 논문 : KBO 다음 시즌 OPS 예측 (RandomForest Regressor)]
-  (https://bluemumin.github.io/project/2019/11/26/Project-baseball-graduate-report-part/)
+- 동국대학교 학사 졸업 논문 : [KBO 다음 시즌 OPS 예측 (RandomForest Regressor)](https://bluemumin.github.io/project/2019/11/26/Project-baseball-graduate-report-part/)
   
 - 교육 : 빅데이터 청년인재 - 정당 논평, 자연어 처리 활용 뉴스 정치 성향 퍼센트 분류 모형 UI 구축
   
-- 공모전 : [데이콘 6회 KBO 타자 OPS 모델링/시각화 대회 (모델링 18/94등, 시각화 1/17등)]
- (https://bluemumin.github.io/project/2019/09/25/Project-six-dacon/)
+- 공모전 : [데이콘 6회 KBO 타자 OPS 모델링/시각화 대회 (모델링 18/94등, 시각화 1/17등)](https://bluemumin.github.io/project/2019/09/25/Project-six-dacon/)
 
 - 데이터 마이닝 전공 - 포르투갈 텔레마케팅 데이터를 활용한 정기예금 가입 가능성 분류
 
 - 동아리(비어플) - 서울 배달 업체 최적 위치 선정 및 가게 운영 시간 선정
 
-- 동아리(비어플) 및 통계 컨설팅1 전공 수업 - [와인 성분 이용한 와인 등급 분류]
- (https://bluemumin.github.io/project/2019/09/28/Project-wine2/)
+- 동아리(비어플) 및 통계 컨설팅1 전공 수업 - [와인 성분 이용한 와인 등급 분류](https://bluemumin.github.io/project/2019/09/28/Project-wine2/)
 
 ## 하고싶은 말
 
