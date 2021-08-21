@@ -2,8 +2,8 @@
 layout: post
 title:  "python에서 Oracle, MS SQL, DB2, Postgre DB 연동 하는 법"
 subtitle:   "python에서 Oracle, MS SQL, DB2, Postgre DB 연동 하는 법"
-categories: PS
-tags: Python
+categories: Python
+tags: Tip
 comments: true
 ---
 

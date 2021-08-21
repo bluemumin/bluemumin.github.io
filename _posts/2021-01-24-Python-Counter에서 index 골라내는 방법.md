@@ -2,8 +2,8 @@
 layout: post
 title:  "python Counter 함수에서 value 값으로 key 값 찾는 방법"
 subtitle:   "python Counter 함수에서 value 값으로 key 값 찾는 방법"
-categories: PS
-tags: Python
+categories: Python
+tags: Tip
 comments: true
 ---
 

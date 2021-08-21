@@ -2,8 +2,8 @@
 layout: post
 title:  "Oracle 병렬처리 Parallel 사용"
 subtitle:   "Oracle 병렬처리 Parallel 사용"
-categories: PS
-tags: SQL
+categories: SQL
+tags: Oracle
 comments: true
 ---
 
