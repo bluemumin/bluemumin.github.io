@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Python
-slug: Python
-category: PS
+title: Tip
+slug: Tip
+category: Python
 menu: false
 order: 1
 ---
