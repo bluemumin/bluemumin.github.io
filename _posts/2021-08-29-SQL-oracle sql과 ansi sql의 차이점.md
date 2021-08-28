@@ -30,19 +30,19 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 세번째 - 줄은 비고 설명입니다.
 
 
-1.  NULL 확인 방법
+1.NULL 확인 방법
 
 - NVL(컬럼,'')
 
 - IFNULL(컬럼,'')
 
-2. 현재 날짜 입력
+2.현재 날짜 입력
 
 - SYSDATE
 
 - NOW()
 
-3. 날짜포맷 -> string
+3.날짜포맷 -> string
 
 - TO_CHAR(컬럼,'YYYYMMDDHH24MISS')
 
@@ -50,7 +50,7 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - ANSI(%y = 2자리)
 
-4. 요일 숫자 범위
+4.요일 숫자 범위
 
 - 일요일=1, 토요일=7
 
@@ -58,38 +58,38 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - oracle은 보통 -1해서 ANSI와 동일하게 사용
 
-5. 문자 합칠때
+5.문자 합칠때
 
 - '%'||'k'||'*'
 
 - concat('%','k','*')
 
-6. 문자형으로 변환
+6.문자형으로 변환
 
 - TO_CHAR(632)
 
 - CAST(632 AS CHAR)
 
-7. 페이징 처리
+7.페이징 처리
 
 - where rownum between 0 and 10
 
 - from table limit 0,10
 
-8. 시퀀스 사용시, 다음 번호 호출
+8.시퀀스 사용시, 다음 번호 호출
 
 - 시퀀스명.NEXTVAL
 
 - 시퀀스명.CURRVAL
 
-9. alias 사용
+9.alias 사용
 - as 'alias명' or alias명 or as alias명
 
 - as alias명 or alias명
 
 - ANSI는 alias명 자동 대문자
 
-10. 문자형 자르기
+10.문자형 자르기
 
 - SUBSTR(문자열,1,10)
 
@@ -97,19 +97,19 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - (+는 추가 기능)
 
-11. 저장프로시저 있는지 파악 후, create
+11.저장프로시저 있는지 파악 후, create
 
 - create or replace procedure 프로시저명
 
 - drop procedure if exists 프로시저명; create procedure 프로시저명
 
-- 12. 예약어가 컬럼명 일때
+12.예약어가 컬럼명 일때
 
 - 컬럼명을 따옴표로 감싸기(select "column" from tab)
 
 - 컬럼명을 tab 위 ' ` '키로 감싸기
 
-13. IF구문
+13.IF구문
 
 - DECODE(조건식,일치 조건 값, 참 반환 값,거짓 반환 값)
 
@@ -117,7 +117,7 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - (다중 조건인 CASE는 동일하게 사용)
 
-14. JOIN 방법
+14.JOIN 방법
 
 일반적 join  
 
