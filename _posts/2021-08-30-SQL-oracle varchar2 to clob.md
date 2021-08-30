@@ -45,7 +45,7 @@ clob로만 테이블 구성을 하면 당연히 편리하지만, 길이가 길�
 
 <br/>
 
-1.테이블 내에 데이터가 없을 때
+### 1.테이블 내에 데이터가 없을 때
 
 테이블에 데이터가 없다면, 구조만 있기에, 바로 clob 컬럼 타입으로 바꿔주면 된다.
 
@@ -53,19 +53,25 @@ clob로만 테이블 구성을 하면 당연히 편리하지만, 길이가 길�
 
 varchar2 -> long -> clob로 바꿔줘야지 정상적으로 변경이 가능하다.
 
+<br/>
+
 ALTER TABLE (스키마.)테이블명 modify 타입변경_컬럼 long; --varchar2 -> long
 
 ALTER TABLE (스키마.)테이블명 modify 타입변경_컬럼 clob; --long -> clob
+
+<br/>
 
 해당 쿼리를 실행시키면, varchar2는 clob 컬럼 타입으로 변경이 되게 된다.
 
 <br/>
 
-2.테이블 내에 데이터가 있을 때,
+### 2.테이블 내에 데이터가 있을 때,
 
 데이터가 있는 상태에서 해당 1번 방식처럼 컬럼을 바꾸게 되면, 데이터에 문제가 발생할 수 있다.
 
 그렇기에, 임시 컬럼을 만들고, 여기에 덮어 씌워야한다.
+
+<br/>
 
 ALTER TABLE (스키마.)테이블명 ADD 타입변경_컬럼_temp clob; --임시 컬럼 생성
 
@@ -74,6 +80,8 @@ UPDATE (스키마.)테이블명 SET 타입변경_컬럼_temp = 기존_컬럼; --
 ALTER TABLE (스키마.)테이블명 drop column 기존_컬럼; -- 기존 컬럼 및 데이터 drop
 
 ALTER TABLE (스키마.)테이블명 rename column 타입변경_컬럼_temp to 기존_컬럼; --기존 컬럼 명으로 대체
+
+<br/>
 
 이렇게 하게 되면 다 해결 된 것 처럼 보인다.
 
@@ -89,7 +97,9 @@ ALTER TABLE (스키마.)테이블명 rename column 타입변경_컬럼_temp to �
 
 (오라클 11이하 버전은 밑에 방법을 사용하지 못하니, 테이블 재생성을 하여야 한다.)
 
-그렇기에, 컬럼 숨기기/숨김 해제로 처리를 하는 것이 좋다.("오라클 12c vesrion 이상만 가능")
+그렇기에, 컬럼 숨기기/숨김 해제로 처리를 하는 것이 좋다.("오라클 12c vesrion 이상만 가능"
+
+<br/>
 
 ALTER TABLE (스키마.)테이블명 modify 기존_컬럼의_뒷컬럼1 INVISIBLE;
 
@@ -102,6 +112,8 @@ ALTER TABLE (스키마.)테이블명 modify 기존_컬럼의_뒷컬럼1 VISIBLE;
 ALTER TABLE (스키마.)테이블명 modify 기존_컬럼의_뒷컬럼2 VISIBLE;
 
 ....
+
+<br/>
 
 mysql은 alter table 테이블명 modify column 신규_컬럼 after 이동할_위치의_앞_컬럼;
 
