@@ -127,14 +127,14 @@ mysql은 alter table 테이블명 modify column 신규_컬럼 after 이동할_�
 
 이건 그냥, 문자 값들을 이어 붙여서 해결을 하는게 좋다.
 
-(하단 추가 작성 중, 아직 수정 전임)
-
-cf) (shift + \) 사용시, 표로 생성 되어 임시로 ii로 대체함.
-
-select 'ALTER TABLE (스키마.)테이블명 modify ' ii column ii ' INVISIBLE;' as job1
+select 'ALTER TABLE ' \|\| table_name \|\| ' modify ' \|\| column_name \|\| ' INVISIBLE;' 
 
 from all_tab_columns
 
-where 1=1 and table_name = "테이블명";
+where 1=1 and table_name = '테이블_이름'
+
+and column_id >= 원래대로_되돌아갈_위치
+
+and column_id < 제일 마지막 번호;
 
 이런 식으로 ALTER TABLE 쿼리를 만들어서 사용하면 해결 된다.
