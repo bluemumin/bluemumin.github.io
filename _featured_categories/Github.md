@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Github Blog
-slug: Github Blog
+slug: Github
 menu: true
 submenu: false
 order: 10
