@@ -43,6 +43,8 @@ ex) YYYY-MM-DD HH:MM:SS.FF4 (소숫점 4자리까지 표현)
 
 TIMSTAMP는 SYSTIMESTAMP를 사용하면 됩니다.
 
+<br/>
+
 ### 2. 연산 방법
 
 날짜타입의 기본적인 연산 방법은 숫자 타입과 동일합니다.
@@ -55,6 +57,7 @@ ex2) SYSTIMESTAMP + INTERVAL '10' SECOND
 
 (MINUTE, HOUR, DAY 등으로도 변경해서 가능)
 
+<br/>
 
 ### 3.함수 종류
 
