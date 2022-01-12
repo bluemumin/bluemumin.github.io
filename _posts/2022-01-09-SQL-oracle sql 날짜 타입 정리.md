@@ -65,9 +65,9 @@ ex2) SYSTIMESTAMP + INTERVAL '10' SECOND
 
 NEXT_DAY(입력된 date 이후, 지정된 요일에 해당되는 값 반환),  / CF) 일 ~ 토 : 1 ~7 배정됨
 
-ex1) select NEXT_DAY(DATE '2050-01-01', '화') -> 2050-01-04 00:00:00
+    ex1) select NEXT_DAY(DATE '2050-01-01', '화') -> 2050-01-04 00:00:00
 
-ex2) select NEXT_DAY(DATE '2050-01-01', 3) -> 2050-01-04 00:00:00
+    ex2) select NEXT_DAY(DATE '2050-01-01', 3) -> 2050-01-04 00:00:00
 
 <br/>
 
@@ -77,7 +77,7 @@ LAST_DAY(해당 date의 월말 반환),
 
 ADD_MONTHS(date, integer) (지정한 개월수 가감한 값 반환 / 단 월말일이면 월말일 반환함),
 
-ex1) select ADD_MONTHS(DATE '2050-02-28', 1) -> 2050-03-31 00:00:00
+    ex1) select ADD_MONTHS(DATE '2050-02-28', 1) -> 2050-03-31 00:00:00
 
 <br/>
 
@@ -93,9 +93,9 @@ EXTRACT(YEAR, MONTH 등 원하는 날짜 정보 추출) 등이 있습니다.
 
 포맷지정이 되지 않으면 정확히 어느 날짜인지 인지를 못하기 때문 입니다.
 
-ex1) SELECT TO_DATE('20050102', 'YYYYMMDD') -> 2005-01-02 00:00:00
+    ex1) SELECT TO_DATE('20050102', 'YYYYMMDD') -> 2005-01-02 00:00:00
 
-ex2) SELECT TO_DATE('20050102123456', 'YYYYMMDD24MISS') -> 2005-01-02 12:34:56
+    ex2) SELECT TO_DATE('20050102123456', 'YYYYMMDD24MISS') -> 2005-01-02 12:34:56
 
 <br/>
 
