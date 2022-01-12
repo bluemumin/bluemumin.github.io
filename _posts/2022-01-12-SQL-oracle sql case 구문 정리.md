@@ -19,15 +19,15 @@ case 뒤에 when을 넣고 조건들을 넣는 검색 case가 존재한다.
 
 ### 1.단일 CASE 표현식
 
-SELECT CASE 컬럼1 
+    SELECT CASE 컬럼1 
 
-WHEN 10 THEN 1
+    WHEN 10 THEN 1
 
-WHEN 20 THEN 2
+    WHEN 20 THEN 2
 
-ELSE 9 --ELSE 생략하면 해당 경우에 NULL 반환
+    ELSE 9 --ELSE 생략하면 해당 경우에 NULL 반환
 
-END AS C1 ~
+    END AS C1 ~
 
 <br/>
 
@@ -43,15 +43,15 @@ END AS C1 ~
 
 ### 2.검색 CASE 표현식
 
-SELECT CASE
+    SELECT CASE
 
-WHEN 컬럼1 BETWEEN 10 AND 20 THEN 1
+    WHEN 컬럼1 BETWEEN 10 AND 20 THEN 1
 
-WHEN 컬럼1 BETWEEN 20 AND 30 THEN 2
+    WHEN 컬럼1 BETWEEN 20 AND 30 THEN 2
 
-ELSE 9
+    ELSE 9
 
-END AS C1 ~
+    END AS C1 ~
 
 <br/>
 
@@ -71,21 +71,21 @@ CASE 구문 안에 또 다른 CASE 구문을 넣을 수 있다.
 
 <br/>
 
-SELECT CASE
+    SELECT CASE
 
-WHEN 컬럼1 = 10 THEN
+    WHEN 컬럼1 = 10 THEN
 
-    CASE WHEN 컬럼2 >= 1000 THEN '1위'
+        CASE WHEN 컬럼2 >= 1000 THEN '1위'
 
-         WHEN 컬럼2 >= 500 THEN '2위' END
+            WHEN 컬럼2 >= 500 THEN '2위' END
 
-WHEN 컬럼1 = 20 THEN
+    WHEN 컬럼1 = 20 THEN
 
-    CASE WHEN 컬럼2 >= 3000 THEN '1위'
+        CASE WHEN 컬럼2 >= 3000 THEN '1위'
 
-         WHEN 컬럼2 >= 2500 THEN '2위' END
+            WHEN 컬럼2 >= 2500 THEN '2위' END
 
-END AS LAST_COLUMN ~
+    END AS LAST_COLUMN ~
 
 <br/>
 
