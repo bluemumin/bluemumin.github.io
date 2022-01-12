@@ -43,15 +43,15 @@ dba_로 시작되는 것은 DBA 계정으로 접속을 했을 때, 모든 것을
 
 -\- 테이블 모든 정보 (대체 가능 : DBA_OBJECTS, ALL_OBJECTS, DBA_TABLES, ALL_ALL_TABLES)
 
-select * from ALL_TABLES; 
+    select * from ALL_TABLES; 
 
 -\- 접속 계정 내 소유 항목 조회 (대체 가능 : user_object)
 
-select * from tabs;
+    select * from tabs;
 
 -\- 파티션 된 테이블 정보
 
-select * from all_part_tables;
+    select * from all_part_tables;
 
 <br/>
 
@@ -59,15 +59,15 @@ select * from all_part_tables;
 
 -\- 전체 컬럼 조회 (대체 가능 : all_tab_columns 등)
 
-select * from cols;
+    select * from cols;
 
 -\- 파티션 컬럼 조회
 
-select * from all_part_key_columns;
+    select * from all_part_key_columns;
 
 -\- 컬럼별 constraint 정보 조회 (대체 가능 : DBA_CONS_COLUMN, USER_CONS_COLUMN(접속 계정 소유))
 
-select * from all_cons_columns;
+    select * from all_cons_columns;
 
 <br/>
 
@@ -79,11 +79,11 @@ comment 에는 테이블 자체에 대한 설명을 적은 comment(tab_comments)
 
 -\- 테이블 자체 comment(대체 가능 : DBA_TAB_COMMENTS, USER_TAB_COMMENTS(접속 계정 소유))
 
-select * from all_tab_comments;
+    select * from all_tab_comments;
 
 -\- 테이블 내 column comment(대체 가능 : DBA_COL_COMMENTS, USER_COL_COMMENTS(접속 계정 소유))
 
-select * from all_col_comments;
+    select * from all_col_comments;
 
 <br/>
 
@@ -91,19 +91,19 @@ select * from all_col_comments;
 
 -\- 파티션 정보 조회
 
-select * from all_tab_partitions;
+    select * from all_tab_partitions;
 
 -\- 파티션 된 테이블의 index 조회
 
-select * from all_part_indexes;
+    select * from all_part_indexes;
 
 -\- constraint 정보 조회
 
-select * from all_constraints;
+    select * from all_constraints;
 
 -\- 접속 계정 보유 권한 조회
 
-select * from user_tab_privs;
+    select * from user_tab_privs;
 
 <br/>
 
@@ -112,4 +112,3 @@ select * from user_tab_privs;
 자신에게 허용이 되는 선에서의 정보를 찾거나
 
 자신이 소유한 것에 대한 정보를 찾을 수 있다.
-

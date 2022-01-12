@@ -37,11 +37,15 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - IFNULL(컬럼,'')
 
+<br/>
+
 2.현재 날짜 입력
 
 - SYSDATE
 
 - NOW()
+
+<br/>
 
 3.날짜포맷 -> string
 
@@ -51,6 +55,8 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - ANSI(%y = 2자리)
 
+<br/>
+
 4.요일 숫자 범위
 
 - 일요일=1, 토요일=7
@@ -59,11 +65,15 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - oracle은 보통 -1해서 ANSI와 동일하게 사용
 
+<br/>
+
 5.문자 합칠때
 
 - '%' \|\| 'k' \|\| '*'
 
 - concat('%','k','*')
+
+<br/>
 
 6.문자형으로 변환
 
@@ -71,17 +81,23 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - CAST(632 AS CHAR)
 
+<br/>
+
 7.페이징 처리
 
 - where rownum between 0 and 10
 
 - from table limit 0,10
 
+<br/>
+
 8.시퀀스 사용시, 다음 번호 호출
 
 - 시퀀스명.NEXTVAL
 
 - 시퀀스명.CURRVAL
+
+<br/>
 
 9.alias 사용
 
@@ -91,6 +107,8 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - ANSI는 alias명 자동 대문자
 
+<br/>
+
 10.문자형 자르기
 
 - SUBSTR(문자열,1,10)
@@ -99,17 +117,23 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
 - (+는 추가 기능)
 
+<br/>
+
 11.저장프로시저 있는지 파악 후, create
 
 - create or replace procedure 프로시저명
 
 - drop procedure if exists 프로시저명; create procedure 프로시저명
 
+<br/>
+
 12.예약어가 컬럼명 일때
 
 - 컬럼명을 따옴표로 감싸기(select "column" from tab)
 
 - 컬럼명을 tab 위 ' ` '키로 감싸기
+
+<br/>
 
 13.IF구문
 
@@ -135,6 +159,8 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
 
   이유 : Hierachical structure -> flat structure 변경) (성능 고려 x 가능)
 
+<br/>
+
 차이점 :
 
 - ANSI는 테이블을 하나씩 붙임.
@@ -148,6 +174,8 @@ ADP하면서 밀리고, 사내 경진대회 나가면서 밀리고, 쉬면서 �
   join 당하는 테이블은 (+) 표기
 
   ex) from I1, I2 where I1.column1 = I2.column1(+)
+
+<br/>
 
 이번 연도에는 Oracle sql만 주구장창 사용을 해와서
 

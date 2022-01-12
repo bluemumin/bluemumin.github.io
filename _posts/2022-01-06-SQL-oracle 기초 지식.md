@@ -19,7 +19,7 @@ Oracle DB 업무를 하면서 익힌 지식과 결합해서 내용을 정리하�
 
 <br/>
 
-1.OLTP VS OLAP
+### 1.OLTP VS OLAP
 
 두 개 모두 oline transaction / analytical processing을 각각 줄인 말로
 
@@ -39,7 +39,7 @@ OLAP는 이미 저장된 데이터 기반으로 분석 하는데 중점을 두�
 
 <br/>
 
-2.E-R모델 (Entity Relationship model)
+### 2.E-R모델 (Entity Relationship model)
 
 요구사항에서 얻어낸 정보들을 개체(Entity), 속성(Attribute), 관계(Relation)으로 기술하는 데이터 모델을 이야기 합니다.
 
@@ -55,7 +55,7 @@ OLAP는 이미 저장된 데이터 기반으로 분석 하는데 중점을 두�
 
 <br/>
 
-3.정규화
+### 3.정규화
 
 통계에서의 정규화(보통은 표준화라고 불리우는)는 서로 다른 단위를 가진 변수들을 변환해주는 것을 의미합니다.
 
@@ -103,7 +103,7 @@ A -> B, B -> C 가 성립할 때, A -> C가 성립되는 것을 이행 종속이
 
 <br/>
 
-4.Object 구분
+### 4.Object 구분
 
 object는 여기서 논리적 데이터 구조라고 설명을 하고 있습니다.
 
