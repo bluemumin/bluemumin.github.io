@@ -11,9 +11,9 @@ comments: true
 
 오라클 DB는 기본적으로 ANSI SQL을 지원해줍니다.
 
-이유는 사용자들이 ansi sql을 많이 쓰다보니...
+이유는 사용자들이 oracle DB 안에서 ansi sql 구문으로 많이 쓰다보니...
 
-저도 사실 ansi sql이 더 편한 것이, oracle DB를 썼던 입장에서
+저도 사실 ansi sql이 더 편하지만, oracle DB를 썼던 입장에서
 
 oracle DB의 JOIN 구문을 알아야겠다고 생각해서 공부를 했었습니다.
 
