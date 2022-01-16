@@ -21,7 +21,7 @@ comments: true
 
     EXEC :V1 := 1;
 
-    SELEC :V1 AS C1 FROM DUAL; --C1열에 1이 입력된 결과가 출력됨
+    SELECT :V1 AS C1 FROM DUAL; --C1열에 1이 입력된 결과가 출력됨
 
 VAR 명령어로 변수를 선언하고
 
@@ -33,7 +33,7 @@ EXEX 명령어로 값을 할당한다.
 
     VAR V1 NUMBER :=3 ;
 
-    SELEC :V1 AS C1 FROM DUAL; --C1열에 3이 입력된 결과가 출력됨
+    SELECT :V1 AS C1 FROM DUAL; --C1열에 3이 입력된 결과가 출력됨
 
 <br/>
 
