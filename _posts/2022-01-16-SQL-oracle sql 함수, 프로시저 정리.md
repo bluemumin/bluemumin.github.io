@@ -64,6 +64,12 @@ begin ~ end 구문 안에다가 원하는 내용을 넣고 반환을 수행하�
     CREATE OR REPLACE TYPE table_make  
     AS TABLE OF type_make; 
 
+먼저 컬럼들을 object로서 지정하고
+
+그 다음에 그 컬럼들로 이루어진 테이블을 지정한다.
+
+<br/>
+
     -- 3. 파이프라인 테이블 함수 생성
     CREATE OR REPLACE FUNCTION function2 (parameter1 NUMBER) 
         RETURN table_make 
@@ -85,21 +91,100 @@ begin ~ end 구문 안에다가 원하는 내용을 넣고 반환을 수행하�
         RETURN; 
     END;
 
+마지막으로 이전처럼 함수를 작성하는데
+
+return이 되는 곳에 테이블을 넣고 PIPELINED를 추가로 넣는다.
+
+begin 구절에는 for문을 넣어 루프를 수행하게 하고
+
+해당 결과들이 모여서 테이블이 될 수 있도록 한다.
+
+마지막에 해당 테이블이 반환이 된다.
+
+<br/>
+
+    SELECT * FROM TABLE(function2(123));
+
+실행 방법은 테이블 형태로 나오기 때문에, from 절에 사용하거나
+
+테이블이 들어가도 오류가 나지 않을 위치에 넣어서 활용하면 된다.
+
+<br/>
 
 ### 2.프로시저 작성법
 
 필요할때마다 호출, 사용할 수 있게 특정 로직만 처리하고
 
-결과값은 반환하지 않게 할 수 있는 서브 프로그램
+결과값은 반환하지 않게 할 수 있는 서브 프로그램이다.
 
-in 다음에 out을 잘 적으면 out도 가능
+단, 레퍼런스 변수를 사용하면 결과 값 리턴이 가능하다.
 
-CREATE OR REPLACE PROCEDURE 프로시저명(파라미터)
+    CREATE OR REPLACE PROCEDURE procedure1 
+    (
+        column1 IN VARCHAR2,
+        column2 IN VARCHAR2
+    )
+    IS
 
-IS -- 프로시저에서 선언할 변수
+    BEGIN
 
-BEGIN ~ 내용 END; (여러 작업 단위별로 가능, 예외 처리 가능)
+        UPDATE table1
+            SET c1 = column2
+        WHERE t1 = column1;
 
--> EXEC 프로시저명(파라미터);
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+            DBMS_OUTPUT.PUT_LINE('SQL ERROR MESSAGE: ' || SQLERRM);
 
-CURSOR를 쓰면 리턴도 가능
+    END procedure1;
+
+예시는 특정 조건에 맞는 컬럼 값을 update 하는 프로시저이다.
+
+    EXEC procedure1('example1', 'example2')
+
+로 실행이 가능하다.
+
+update를 진행하기에 리턴이 없지만
+
+<br/>
+
+이를 cursor를 추가로 해서 리턴을 받거나
+
+varchar2등을 넣어서 리턴을 받을 수 있다.
+
+    CREATE OR REPLACE PROCEDURE procedure2 
+    (
+        column1 IN VARCHAR2,
+        column2 IN VARCHAR2,
+        output1 OUT VARCHAR2
+    )
+    IS
+        TEMP_COLUMN VARCHAR2(1);
+
+    BEGIN
+
+        UPDATE table1
+            SET c1 = column2
+        WHERE t1 = column1;
+
+        TEMP_COLUMN := TO_CHAR(SQL%ROWCOUNT);
+
+        output1 := TEMP_COLUMN;
+
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK;
+            DBMS_OUTPUT.PUT_LINE('SQL ERROR MESSAGE: ' || SQLERRM);
+
+    END procedure2;
+
+이전 프로시저와 다르게 업데이트가 실행된 행 갯수를
+
+반환 받을 수 있도록 프로시저를 작성하였다.
+
+    variable real_output VARCHAR2;
+    exec procedure2('test1','test2,:real_output);
+    print real_output;
+
+로 결과를 반환 받을 수 있게 된다.
