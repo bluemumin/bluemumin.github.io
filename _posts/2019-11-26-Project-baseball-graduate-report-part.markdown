@@ -9,7 +9,7 @@ comments: true
 
 ### Competition, Toy project - 야구 타자 OPS 예측
 
-- 모형 구축 기간 : 2019.10 ~ 2019.11
+- 모형 구축 기간 : 2019.03~04, 2019.10~11
 
 - 사용언어 / 핵심 라이브러리
  <p> python / Pandas, matplotlib, seaborn, plotly, BeautifulSoup, sklearn </p>
@@ -37,9 +37,15 @@ comments: true
 		- 모델링 18/93위 기록, 시각화 1등 기록 <br/>
 		&nbsp;+ 스탯티즈 사이트 개편시, 크롤링 코드가 중단이 되므로, 코드 재활용시 개선 작업 필요 </p>
 		
-*보러가기: [야구 타자 OPS 예측](https://github.com/bluemumin/baseball_ops_predict)
+*보러가기: [야구 타자 OPS 예측 모델 코드](https://github.com/bluemumin/baseball_ops_predict/blob/master/korean_baseball_OPS_predict.ipynb)
 
 - 변수 중요도 상위 6개 : 총 루타 수(TB), wOBA, 타점(RBI), 홈런(HR), isop, 현재 시즌 OPS
+
+- 요약 내용
+
+<img data-action="zoom" src='{{ "/assets/img/baseball/summary.jpg" | relative_url }}' alt='absolute'>
+
+<br/>
 
 cf)
 [데이콘 6회 KBO OPS 예측 18위 기록](https://dacon.io/competitions/official/62540/leaderboard/)
