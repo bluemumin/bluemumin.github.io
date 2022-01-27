@@ -2,8 +2,8 @@
 layout: post
 title:  "와인 성분 데이터로 와인 품질 분류"
 subtitle:   "와인 성분 데이터로 와인 품질 분류"
-categories: school
-tags: etc
+categories: Project
+tags: University
 comments: true
 ---
 

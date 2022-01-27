@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Dongguk-University
-slug: school
+title: University
+slug: University
 category: Project
 menu: false
 order: 1
