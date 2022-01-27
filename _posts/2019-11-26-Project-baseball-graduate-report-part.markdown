@@ -1,71 +1,53 @@
 ---
 layout: post
-title:  "학사 졸업 논문(kbo 다음시즌 OPS 예측 모델링)"
-subtitle:   "학사 졸업 논문(kbo 다음시즌 OPS 예측 모델링)"
+title:  "kbo 다음 시즌 타자 성적(OPS) 예측 모델"
+subtitle:   "kbo 다음 시즌 타자 성적(OPS) 예측 모델"
 categories: Project
 tags: school
 comments: true
 ---
 
-##### 현재 학사 졸업 논문으로 제작이 된 RandomForest Regressor 모형의 설명 및 코드 일부입니다
+### Competition, Toy project - 야구 타자 OPS 예측
 
-##### 모형 설명
+- 모형 구축 기간 : 2019.10 ~ 2019.11
 
-모형 구축 데이터명(날짜) :  KBO_player_data_2019(2019.10)(스탯티즈 크롤링)
+- 사용언어 / 핵심 라이브러리
+ <p> python / Pandas, matplotlib, seaborn, plotly, BeautifulSoup, sklearn </p>
 
-모형 구축 기간 : 2019.10 ~ 2019.11
+- Background 
+ <p> 현 시즌 타자 성적 기반, 다음 시즌의 타자들의 OPS(타자의 대표적 타격 지표) 성적 예측 </p>
 
-목적 : KBO 다음 시즌 타자 성적(OPS) 예측
+- Summary
+	<p>(1). Data Collection <br/>
+		- 현역 선수 연도별 타격 성적 + 개인 정보(나이, 연봉 등) [스탯티즈] </p>
+	<p>(2). Data Preprocessing <br/>
+		- EDA (변수간 heatmap & 반응변수와의 barplot, boxplot & barplot, histogram & dot graph) <br/>
+		- 목적, 파생변수 생성 (다음 시즌 OPS --> 반응변수 / 행운의 안타, 타자 속도 계수, 평균대비 기여율, 공 반발계수, 누적 연차 등)<br/>
+		- Reduction & 변수 그룹화 (작은 타석수로 과도 or 과소로 나온 값 절단, 타석 위치 & 포지션 통합)</p>
+	<p>(3). Model & Algorithms <br/>
+		- RandomForestRegressor --> GridSearch 사용 후 MAE 계산 <br/>
+		- xgboost Regressor, Linear Regression --> parameter 미설정 후, 메인 모델링 비교용으로 활용<br/>
+		- 이전 2개년 결과 --> 누적 데이터 감소에 따른 영향 확인 및, 연도별 MAE 일정 여부 확인 </p>
+	<p>(4). Report <br/>
+		- 평균 MAE 0.09로 타자의 OPS 성적을 1할 미만의 값으로 예측하는 모델 구현 완료 (cf 최저/고 범위 0.55~1.1) <br/>
+		- 다음 시즌의 타자 성적 예측 목표를 두고 데이터 크롤링, EDA, 모델링까지 전체 process 구현 완료 </p>
+	<p>(5). Review <br/>
+		- 피드백 : 직전 시즌 기록만이 아닌 더 이전 시즌의 기록, 누적 성적들도 활용 가능 예상함<br/>
+		- Futher Research : 이전 기록이 없는 신규 타자 --> 고등,대학 리그의 데이터로 추가 모델 구현<br/>
+		- 모델링 18/93위 기록, 시각화 1등 기록 <br/>
+		&nbsp;+ 스탯티즈 사이트 개편시, 크롤링 코드가 중단이 되므로, 코드 재활용시 개선 작업 필요 </p>
+		
+*보러가기: [야구 타자 OPS 예측](https://github.com/bluemumin/baseball_ops_predict)
 
-제안 목표 고객 : KBO팀 스카우터, KBO 선수, 야구 관계자
+- 변수 중요도 상위 6개 : 총 루타 수(TB), wOBA, 타점(RBI), 홈런(HR), isop, 현재 시즌 OPS
 
-목적 변수 : YOPS(다음 시즌 타자 OPS)
+cf)
+[데이콘 6회 KBO OPS 예측 18위 기록](https://dacon.io/competitions/official/62540/leaderboard/)
 
-변수 중요도 상위 6개 : 총 루타 수(TB), wOBA, 타점(RBI), 홈런(HR), isop, 현재 시즌 OPS
+[데이콘 6회 KBO OPS 예측 시각화 부문 1등 기록](https://dacon.io/competitions/official/235546/leaderboard/) = 푸른무민
 
-요약 : 선수들의 개인 성향 및 특징, 현재 시즌 타자들의 성적,
++ 문의 후 이동 가능(private)
 
-다음 시즌 공의 반발계수 등의 다음 시즌 특징 들을 활용하여
-
-YOPS를 예측하고 MAE를 통해 확인한 RandomForest Regressor 모형입니다.
-
-
-##### 사용 프로그램 : Python (Jupyter notebook)
-
-##### 사용 방법 (시각화)
-
-타석 위치 및 포지션 통합 작업 용 boxplot and bar plot
-
-예상 핵심 변수(타수, 나이, war, 홈런) histogram and YOPS와의 scatter plot
-
-목적변수에 대한 독립변수들의 상관계수 시각화 및 각 변수들 상관계수 heatmap
-
-RandomForest Regressor 변수 중요도 세로 막대 그래프
-
-##### 사용 방법 (모델링)
-
-선수명 수집 -> [스탯티즈](http://www.statiz.co.kr/) 크롤링 및 목적 변수(YOPS 생성)
-
--> 선수 성적 관련 변수 추가, 포지션 & 타석 위치 그룹화, 다음 시즌 공의 반발계수 반영
-
--> eda를 통한 OPS+ 일정 값 이하 이상치 제거, 
-
--> 모델링 비교 작업(linear regressor, RandomForest Regressor, XGBoost regressor)
-
--> 평가 방법 : MAE, 타수(AB) 가중치 RMSE, 50타수 이상 선수들 기준 MAE
-
-
-
-### 코드 작성 링크 공유
-
-- 코드 작성 인증 링크 공유
-
-(코드가 너무 길어 깃허브 블로그에는 포스팅 하지 않습니다.)
-
-[깃허브 링크](https://github.com/bluemumin/dongguk_university_graduate_report_baseball_OPS)
-
-- 작성 학사 논문 (설명) 공개 여부 : x
-
-- 데이터 수집 방법 및 크롤링 코드 공개 여부 : x
+[데이콘 6회 KBO OPS 예측 시각화 부문 1등 파이썬 파일](https://github.com/bluemumin/six_dacon_insight)
 
 - 검색용 태그 :  isnull(), boxplot, barplot, hist, scatter, corr(), heatmap, MinMaxScaler(), itemgetter, .set_bbox, np.where, pd.get_dummies, .drop, grid_search.best_params_, mean_absolute_error, rmse, best_grid.feature_importances_, plt.barh

@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: 기타
-slug: etc
+title: Competition
+slug: Competition
 category: Project
 menu: false
-order: 5
+order: 2
 ---
