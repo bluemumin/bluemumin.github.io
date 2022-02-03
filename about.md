@@ -3,6 +3,7 @@ layout: about
 title: About
 menu: true
 order: 500
+permalink: https://bluemumin.notion.site/bluemumin/Blue-mumin-57d3d37276be466798e077a267e2bd3c
 ---
 
 ## 소개
