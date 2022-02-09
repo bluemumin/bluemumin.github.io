@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Oracle sql 함수, 프로시저 작성 정리"
-subtitle:   "Oracle sql 함수, 프로시저 작성 정리"
+title:  "Oracle sql DML구문 정리"
+subtitle:   "Oracle DML구문 정리"
 categories: SQL
 comments: true
 tags: Oracle
@@ -19,7 +19,8 @@ DML구문의 가운데 M은 manipulation을 의미하는데, 이는 조작을 �
 
 기존 테이블에 행을 삽입하는 구문으로 아래와 같이 사용되게 된다.
 
-    INSERT INTO table_name (column1, column2, ...) VALUES (7777, 'SAM', ...);
+    INSERT INTO table_name (column1, column2, ...) 
+    VALUES (7777, 'SAM', ...);
     
 방식으로 컬럼을 지정하고 해당 컬럼에 값을 집어넣는 방식이다.
 
@@ -105,8 +106,7 @@ column1, column2의 값을 null로 갱신한다.
     WHERE EXISTS 
     (SELECT 1 
     FROM table_name2 x 
-    WHERE x.column3 = a.column3
-    ); --exists로 불필요한 갱신 방지
+    WHERE x.column3 = a.column3);
 
 하지만 맨 뒤에 WHERE절로 exists를 추가하면 
 
@@ -165,8 +165,6 @@ DELETE구문은 단순하게 테이블의 기존 행을 삭제하는 것으로
         FROM table_name2 x 
         WHERE x.column1 = a.column1
         ); --서브쿼리에 없는 항목 삭제
-
-<br/>
 
 그렇기에 UPDATE와 DELETE구문은 사용시에는, 
 
@@ -229,7 +227,9 @@ MERGE 구문의 핵심은 USING절, ON절이다.
 
 DML구문은 공통적으로 중간에 에러가 발생하면 이전에 사항들을 모두 롤백시킨다.
 
-이를 방지하기 위해, DML 수행 중 에러 발생시, 에러를 기록하고 다음 행에 대해서 진행을 할 수 있다.
+이를 방지하기 위해, DML 수행 중 에러 발생시, 
+
+에러를 기록하고 다음 행에 대해서 진행을 할 수 있다.
 
     BEGIN
     DBMS_ERRLOG.CREATE_ERROR_LOG (dml_table_name => 'T1'
@@ -247,7 +247,3 @@ e1 테이블에서 해당 에러 결과를 확인할 수 있게 된다.
 이러한 테이블은 에러 체킹이 끝나서 더 이상 활용을 하지 않는다면
 
 DROP TABLE을 통해서 삭제를 하면 된다.
-
-
-
-
