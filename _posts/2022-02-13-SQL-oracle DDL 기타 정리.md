@@ -1,13 +1,10 @@
 ---
 layout: post
-tags: []
-categories: []
-#date: 2019-06-25 13:14:15
-#excerpt: ''
-#image: 'BASEURL/assets/blog/img/.png'
-#description:
-#permalink:
-title: 'title'
+title:  "Oracle sql DDL 기타 내용 정리"
+subtitle: "Oracle sql DDL 기타 내용 정리"
+categories: SQL
+comments: true
+tags: Oracle
 ---
 
 ## oracle DB의 DDL구문 중 시너님, DBLINK, COMMENT를 정리 하려고 합니다
@@ -23,6 +20,8 @@ PUBLIC SYNONYM, PRIVATE SYNONYM 두 가지로 나뉘는데
     GRANT CREATE SYNONYM TO user1; --제거는 REVOKE
 
 SYNONYM 생성은 해당 계정에 SYNONYM 권한 부여가 된 이후에 가능하다.
+
+<br/>
 
     CREATE OR REPLACE PUBLIC SYNONYM table_name1 FOR schema.table_name1
 
@@ -76,6 +75,8 @@ password는 연결하고자 하는 USER의 PASSWORD를 대체해서 입력하면
 DB LINK 명칭을 적으면 됩니다.
 
     SELECT * FROM other_db_table@db_link1;
+
+<br/>
 
 ### 3.COMMENT
 
