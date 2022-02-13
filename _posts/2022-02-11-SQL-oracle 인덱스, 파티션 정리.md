@@ -7,6 +7,8 @@ comments: true
 tags: Oracle
 ---
 
+## oracle DB의 DDL구문 중 인덱스, 파티션을 정리하려고 합니다
+
 ### 1.INDEX
 
 데이터를 빠르게 검색하기 위한 오브젝트로 테이블에 종속 되어 있으며

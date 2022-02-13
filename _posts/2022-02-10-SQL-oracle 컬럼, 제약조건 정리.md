@@ -7,6 +7,8 @@ comments: true
 tags: Oracle
 ---
 
+## oracle DB의 DDL구문 중 컬럼, 제약 조건을 정리하려고 합니다
+
 ### 1.열
 
 테이블을 구성하는 기본 단위로 테이블이 만들어진 다음에

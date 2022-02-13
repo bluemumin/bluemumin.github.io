@@ -10,6 +10,7 @@ categories: []
 title: 'title'
 ---
 
+## oracle DB의 DDL구문 중 시너님, DBLINK, COMMENT를 정리 하려고 합니다
 
 ### 1.SYNONYM(시너님)
 
@@ -78,6 +79,14 @@ DB LINK 명칭을 적으면 됩니다.
 
 ### 3.COMMENT
 
-간단하게 테이블, 뷰, 열 등에다가 주석을 다는 방법이다.
+쿼리문에서는 주로 주석을 달 때, --를 사용하거나 /* */ 을 사용한다.
 
+오브젝트에는 간단하게 테이블, 뷰, 열 등에 COMMENT ON 으로 주석을 입력한다.
 
+    COMMENT ON TABLE table_name1 IS '테이블 주석 내용';
+
+    COMMENT ON COLUMN table_name1.column1 IS '컬럼 주석 내용';    
+
+가장 큰 장점은 해당 주석들을 문서로 관리하지 않아도 되고,
+
+테이블이나 컬럼에 대해서 모르는 사용자가 보고, 이해를 할 수 있도록 도와줄 수 있다.
