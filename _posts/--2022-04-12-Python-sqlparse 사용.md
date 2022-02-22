@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "python3 프로그래머스 lv1 풀이 팁 공유"
-subtitle:   "python3 프로그래머스 lv1 풀이 팁 공유"
+title:  "python sqlparse 라이브러리 사용"
+subtitle:   "python sqlparse 라이브러리 사용"
 categories: Python
 tags: Tip
 comments: true
 ---
 
-## python으로 프로그래머스 lv1 풀이하는 팁을 포스팅 합니다.
+## python 라이브러리 중, sql과 관련된 sqlparse 사용법을 포스팅 합니다.
 
 이전에 DB2, Oracle, Postgre, MS-SQL 4개의 DBMS를 각각 함수형태로 불러오는 것을 소개하였습니다.
 
