@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: 기타
-slug: 기타
+title: Graph
+slug: Graph
 category: Python
 menu: false
-order: 4
+order: 2
 ---

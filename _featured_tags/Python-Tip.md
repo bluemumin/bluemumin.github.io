@@ -4,5 +4,5 @@ title: Tip
 slug: Tip
 category: Python
 menu: false
-order: 2
+order: 4
 ---

@@ -4,5 +4,5 @@ title: Deep Learning
 slug: Deep Learning
 category: Python
 menu: false
-order: 3
+order: 1
 ---
