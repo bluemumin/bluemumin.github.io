@@ -154,17 +154,15 @@ plotly 라이브러리를 활용한 radar chart 그리기 입니다.
 
 <br/>
 
-[사진 출처](https://aws1.discourse-cdn.com/elastic/original/3X/9/a/9a9d42d64b6d454159c92123e9e23f99b4c8eccd.png)
-
 radar chart는 아래와 같은 차트로
 
 주로 여러 컬럼을 평가 항목으로 두고, 이를 이은 형태를 가지고 있습니다.
 
 이를 위해서 주로 수치를 통일해주는 과정이 필요합니다.
 
-[사진 출처](https://aws1.discourse-cdn.com/elastic/original/3X/9/a/9a9d42d64b6d454159c92123e9e23f99b4c8eccd.png)
-
 <img data-action="zoom" src='{{ "/assets/img/radar_chart/image1.png" | relative_url }}' alt='absolute'>   
+
+[사진 출처](https://discuss.elastic.co/t/radar-how-to-create-the-radar-chart/258728)
 
 <br/>
 
@@ -445,4 +443,4 @@ fig.update_layout(polar=dict(
 fig.show()
 ```
 
-plotly 출력창 추가 중
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~bluemumin/1.embed" height="525" width="100%"></iframe>
