@@ -81,15 +81,15 @@ paginate_path:       '/page-:num/'
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below. UA-92346434-1
 #google_analytics:  285440536
-google_analytics:  285440536
+#google_analytics:  285440536
 
 # Analytics
 analytics:
   provider               : google
                           # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          : G-K09KGLDHDE
-    measurement_id       : G-K09KGLDHDE
+    tracking_id          : G-10W1FG1F3J
+    measurement_id       : G-10W1FG1F3J
     anonymize_ip         : # true, false (default)
 
 
