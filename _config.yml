@@ -85,7 +85,7 @@ paginate_path:       '/page-:num/'
 
 # Analytics
 analytics:
-  provider               : "google"
+  provider               : "google-gtag"
                           # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
     tracking_id          : "G-10W1FG1F3J"
