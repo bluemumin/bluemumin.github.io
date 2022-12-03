@@ -13,9 +13,7 @@ comments: true
 
 해당 코드를 실습할수 있는 데이터는
 
-https://www.kaggle.com/datasets/bluemumin/kbo-baseball-for-kaggle
-
-해당 페이지를 통해서 다운로드 부탁드리겠습니다.
+[캐글 데이터 페이지](https://www.kaggle.com/datasets/bluemumin/kbo-baseball-for-kaggle)를 통해서 다운로드 부탁드리겠습니다.
 
 
 ```python
