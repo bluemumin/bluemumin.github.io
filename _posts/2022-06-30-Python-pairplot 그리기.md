@@ -487,4 +487,4 @@ with sns.plotting_context(rc={"axes.labelsize":15}):
 
 
     
-<img data-action="zoom" src='{{ "/assets/img/pairplot/output_22_1.png" | relative_url }}' alt='absolute'> 
+<img data-action="zoom" src='{{ "/assets/img/pairplot/output_22_0.png" | relative_url }}' alt='absolute'> 
