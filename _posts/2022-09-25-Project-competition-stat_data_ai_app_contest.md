@@ -17,7 +17,7 @@ comments: true
 
 - 목적 & 데이터 수집(제공)
 
-	- 목적 : 통계청에서의 대/중/소 산업분류를 NLP 기반으로 자동화 할 수 있는 예측 모델 생성
+	- 목적 : 통계청에서의 대/중/소 산업분류를 NLP 기반, 자동화 할 수 있는 예측 모델 생성
 
 	- 데이터 : [대회 데이터 제공] 산업분류 구분 및 예시 문장 / 세부 분류 코드 구분 항목 
 	  
@@ -43,9 +43,9 @@ comments: true
  
 	- LSTM 기반 대/중/소 분류 각각 모델 사용 (비교 대상 : bi-lstm, bn & cnn-lstm)
 	
-	- 사용 시도1 : 소분류 oversampling, 이전 분류와 동일할 경우 선택(RuleBase 추가), 추가 데이터 사용(한국표준산업분류), 
+	- 사용 시도1 : 소분류 oversampling, 이전 분류와 동일할 경우 선택(RuleBase 추가), 
 	
-	             중복 데이터 제거, class_weight 부여
+				  추가 데이터 사용(한국표준산업분류), 중복 데이터 제거, class_weight 부여
 		 
 	- 사용 시도2 : Bert 모델 사용
 	
@@ -59,7 +59,9 @@ comments: true
 	
 	- 피드백 : label이 많을 경우에 대한 예측 방식 search 필요, 
 	
-	          Sequential 모델 제외한 다른 모델 습득 기회 필요, Bert 모델 기본 사용 가능 → 응용 방법 습득 필요
+	          Sequential 모델 제외한 다른 모델 습득 기회 필요, 
+			  
+			  Bert 모델 기본 사용 가능 → 응용 방법 습득 필요
 		  
 [팀 수 확인 출처](https://www.boannews.com/media/view.asp?idx=106557)
 
