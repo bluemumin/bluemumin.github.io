@@ -13,11 +13,9 @@ comments: true
 
   - Status : Complete
 
-  - Tag : Competition
+  - 사용언어 : python
 
-  - 사용언어 / 핵심 라이브러리 : python / Pandas, 
-  
-  	rdkit(분자구조 변환 라이브러리), LightGBM, sklearn
+  - 핵심 라이브러리 : Pandas, rdkit(분자구조 변환 라이브러리), LightGBM, sklearn
 
 ## 2. Why
 

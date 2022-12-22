@@ -7,15 +7,15 @@ tags: University
 comments: true
 ---
 
-## Toy Project - 와인 품질 분류
+## 1. Toy Project - 와인 품질 분류
 
   - Member : 김경록
 
   - Status : Complete
-  
-  - Tag : Toy Project
 
-  - 사용언어 / 핵심 라이브러리 : python / Pandas, matplotlib, seaborn, sklearn, LightGBM
+  - 사용언어 : python 
+  
+  - 핵심 라이브러리 : Pandas, matplotlib, seaborn, sklearn, LightGBM
 
 ## 2. Why
 

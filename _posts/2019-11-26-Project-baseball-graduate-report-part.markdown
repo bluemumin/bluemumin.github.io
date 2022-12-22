@@ -13,11 +13,9 @@ comments: true
 
   - Status : Complete
 
-  - Tag : Competition, Toy Project
-
-  - 사용언어 / 핵심 라이브러리 :  python / 
+  - 사용언어 : python
   
-  	Pandas, matplotlib, seaborn, plotly, BeautifulSoup, sklearn
+  - 핵심 라이브러리 : Pandas, matplotlib, seaborn, plotly, BeautifulSoup, sklearn
 
 ## 2. Why
 
@@ -41,7 +39,7 @@ KBO의 팀들이 타자의 다음시즌 타격 능력을
 
 ## 3. Data
 
-[웹 페이지(사이트 명 : 스탯티즈) 크롤링] 
+[스탯티즈](http://www.statiz.co.kr/main.php) 크롤링
 
 --> 현역 선수 연도별 타격 성적 + 개인 정보(나이, 연봉 등)
 
