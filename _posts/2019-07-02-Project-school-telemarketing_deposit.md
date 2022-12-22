@@ -15,9 +15,9 @@ comments: true
 
   - Status : Complete
 
-  - Tag : Toy Project
+  - 사용언어 : SAS, R 
 
-  - 사용언어 / 핵심 라이브러리 : SAS, R / ggplot2, dplyr 등
+  - 핵심 라이브러리 : ggplot2, dplyr 등
 
 ## 2. Why
 
@@ -39,7 +39,7 @@ kaggle의 데이터를 통해 살펴보려고 합니다.
 
 ## 3. Data
 
-[Kaggle 데이터](https://www.kaggle.com/yufengsui/portuguese-bank-marketing-data-set) 포르투갈 은행 텔레 마케팅 성과 자료
+[Kaggle 데이터](https://www.kaggle.com/yufengsui/portuguese-bank-marketing-data-set) : 포르투갈 은행 텔레 마케팅 성과 자료
 
 ## 4. 분석 방법
 

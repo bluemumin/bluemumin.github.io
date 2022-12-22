@@ -57,9 +57,9 @@ comments: true
 	
 	- 피드백 : label이 많을 경우에 대한 예측 방식 search 필요, 
 	
-	    	Sequential 모델 제외한 다른 모델 습득 기회 필요, 
+	    	 Sequential 모델 제외한 다른 모델 습득 기회 필요, 
 			  
-			Bert 모델 기본 사용 가능 → 응용 방법 습득 필요
+		Bert 모델 기본 사용 가능 → 응용 방법 습득 필요
 		  
 [팀 수 확인 출처](https://www.boannews.com/media/view.asp?idx=106557)
 

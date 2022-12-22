@@ -33,7 +33,7 @@ comments: true
 
 ## 3. Data
 
-[Kaggle 데이터](https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009) 레드 와인 성분 + 와인 품질
+[Kaggle 데이터](https://www.kaggle.com/uciml/red-wine-quality-cortez-et-al-2009) : 레드 와인 성분 + 와인 품질
 
 ## 4. 분석 방법
 
@@ -59,7 +59,7 @@ comments: true
 
 	- 피드백 : 모델링 이전 part에 집중하여, 
 	
-	    실제 머신러닝 개선을 복잡하고 다양하게 시도하는 방법은 미 시도 한채로 종료함.
+	  실제 머신러닝 개선을 복잡하고 다양하게 시도하는 방법은 미 시도 한채로 종료함.
 		
 *보러가기: [와인 품질 분류 코드](https://github.com/bluemumin/wine_quality_classfication/blob/master/wine_quality_simple_classfication.ipynb)*
 
