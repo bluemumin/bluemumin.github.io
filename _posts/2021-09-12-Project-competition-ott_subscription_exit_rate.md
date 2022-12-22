@@ -15,7 +15,9 @@ comments: true
   
   - Tag : Competition
 
-  - 사용언어 / 핵심 라이브러리 : python(3.8) / Pandas, LightGBM
+  - 사용언어 : python(3.8)
+  
+  - 핵심 라이브러리 : Pandas, LightGBM
 
 ## 2. Why
 

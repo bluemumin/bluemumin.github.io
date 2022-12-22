@@ -7,25 +7,33 @@ tags: Competition
 comments: true
 ---
 
-## Competition - SDC 통계데이터 인공지능 활용대회
+## 1. Competition - SDC 통계데이터 인공지능 활용대회
 
-- 사용언어 / 핵심 라이브러리 : 
+  - Member : 김경록
 
-	- Python(3.9) / Konlpy(komoran), keras(Sequential 기반 LSTM)
+  - Status : Complete
+  
+  - Tag : Competition
 
-<br/>
+  - 사용언어 : Python(3.9)
+  
+  - 핵심 라이브러리 : Konlpy(komoran), keras(Sequential 기반 LSTM)
 
-- 목적 & 데이터 수집(제공)
+## 2. Why
 
-	- 목적 : 통계청에서의 대/중/소 산업분류를 NLP 기반, 자동화 할 수 있는 예측 모델 생성
+통계청에서의 대/중/소 산업분류를 
 
-	- 데이터 : [대회 데이터 제공] 산업분류 구분 및 예시 문장 / 세부 분류 코드 구분 항목 
-	  
-	(데이터 외부 유출 금지 -> 미 업로드, 관련 결과 삭제)
+NLP 기반, 자동화 할 수 있는 예측 모델 생성
 
-<br/>
+## 3. Data
 
-- Summary
+[대회 데이터 제공] 산업분류 구분 및 예시 문장 / 세부 분류 코드 구분 항목 
+
+[대회 사이트](https://data.kostat.go.kr/sbchome/contents/cntPage.do?cntntsId=CNTS_000000000000575&amp;amp;curMenuNo=OPT_09_03_00_0)
+
+(데이터 외부 유출 금지 -> 미 업로드, 관련 결과 삭제)
+
+## 4. 분석 방법
 
  (a). Data Preprocessing
  
@@ -59,7 +67,7 @@ comments: true
 	
 	    	 Sequential 모델 제외한 다른 모델 습득 기회 필요, 
 			  
-		Bert 모델 기본 사용 가능 → 응용 방법 습득 필요
+		  Bert 모델 기본 사용 가능 → 응용 방법 습득 필요
 		  
 [팀 수 확인 출처](https://www.boannews.com/media/view.asp?idx=106557)
 
