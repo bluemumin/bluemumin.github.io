@@ -15,7 +15,9 @@ comments: true
 
   - Tag : Competition, Toy Project
 
-  - 사용언어 / 핵심 라이브러리 :  python / Pandas, matplotlib, seaborn, plotly, BeautifulSoup, sklearn
+  - 사용언어 / 핵심 라이브러리 :  python / 
+  
+  	Pandas, matplotlib, seaborn, plotly, BeautifulSoup, sklearn
 
 ## 2. Why
 
@@ -91,7 +93,7 @@ KBO의 팀들이 타자의 다음시즌 타격 능력을
 
 ---------------------------------
 
-- 요약 내용
+## 5. 요약
 
 - 변수 중요도 상위 6개 : 총 루타 수(TB), wOBA, 타점(RBI), 홈런(HR), isop, 현재 시즌 OPS
 
