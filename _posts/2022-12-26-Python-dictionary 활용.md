@@ -60,7 +60,7 @@ data.tail(3)
 
 
 
-<div>
+<div> {width:100%;overflow:auto;}
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
