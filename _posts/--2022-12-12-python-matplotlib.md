@@ -99,6 +99,9 @@ plt.subplots_adjust(top=0.7)
 plt.show()
 
 
+-----------------------------------
+
+
 #색깔 설정
 # cycler 수정
 from cycler import cycler
@@ -129,6 +132,9 @@ ax.annotate("average", (group_mean, 2.5), xytext=(125000, 2.5),
 plt.annotate("Beautiful point", xy=(px, py), xytext=(px-1.3,py+0.5),
                            color="green", weight="heavy", fontsize=14,
                            arrowprops={"facecolor": "lightgreen"})
+
+
+----------------------------------
 
 #subplot
 
@@ -172,6 +178,7 @@ ax3 = plt.subplot(grid[1, 0:]) # 2행 *1*열의 두 번째 부분 그래프 = �
 
 plt.figure(1)
 
+------------------------------------------------
 
 # text
 
@@ -196,6 +203,8 @@ fig.tight_layout(rect=[0, 0, 0.8, 1])  # axes가 표현될 공간을 지정합�
 
 fig, ax = plt.subplots(constrained_layout=True)
 plt.rcParams['figure.constrained_layout.use'] = True
+
+-------------------------------------
 
 #안되는 버전
 fig, axes = plt.subplots(ncols=3, nrows=2, figsize=(7, 4),
@@ -242,7 +251,7 @@ axs[2].legend(handles, labels, loc="upper left", bbox_to_anchor=(1, 1.05))
 
 fig.savefig("45_tightlayout_10.png")
 
-
+-------------------------------------
 
 #축 설정
 
@@ -295,6 +304,7 @@ axs[0].spines["left"].set_color("w")
 axs[0].spines["bottom"].set_linewidth(2)
 axs[0].spines["bottom"].set_color("w")
 
+-------------------------------------
 
 # ticks
 
