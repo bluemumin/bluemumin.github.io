@@ -7,7 +7,7 @@ tags: Graph
 comments: true
 ---
 
-## python 그래프 축 관련 세부 사항에 대해 아는 대로 포스팅 합니다.
+## python 그래프 축 관련 세부 설정에 대해 아는 대로 포스팅 합니다.
 
 <br/>
 
