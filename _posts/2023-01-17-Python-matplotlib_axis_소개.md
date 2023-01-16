@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "python matplotlib 축 설정하기"
-subtitle:   "python matplotlib 축 설정하기"
+title:  "python plotly 소개 및 radar chart 그리기"
+subtitle:   "python plotly 소개 및 radar chart 그리기"
 categories: Python
 tags: Graph
 comments: true
@@ -502,4 +502,4 @@ plt.minorticks_on()
 plt.plot(one_to_nineteen, work_group_total['mean'])
 plt.grid(axis="x", which='minor', color='r', linestyle='--')
 ```
-<img data-action="zoom" src='{{ "/assets/img/matplotlib_axis/output_50_0.png" | relative_url }}' alt='absolute'>     
+<img data-action="zoom" src='{{ "/assets/img/matplotlib_axis/output_50_0.png" | relative_url }}' alt='absolute'> 
