@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "python plotly 소개 및 radar chart 그리기"
-subtitle:   "python plotly 소개 및 radar chart 그리기"
+title:  "python matplotlib axis 관련 포스팅"
+subtitle:   "python matplotlib axis 관련 포스팅"
 categories: Python
 tags: Graph
 comments: true
