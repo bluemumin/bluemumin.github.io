@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Tabnet 논문 해석하기"
-subtitle:   "Tabnet 논문 해석하기"
+title:  "Tabnet 구조 Part"
+subtitle:   "Tabnet 구조 Part"
 categories: review
 tags: 논문
 comments: true
@@ -101,7 +101,7 @@ element-wise 방식인 비 선형 활성 함수로 계산 합니다.
 
 뒤의 2개 block은 decision block입니다.
 
-각 block 간에는 루트 0.5로 정규화 된
+각 block 간에는 √0.5 로 정규화 된
 
 skip connection이 존재하여 vanishing gradient 문제를 개선하게 해줍니다.
 

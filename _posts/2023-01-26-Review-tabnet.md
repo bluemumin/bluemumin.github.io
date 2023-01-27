@@ -19,7 +19,7 @@ Tabular(정형) 데이터를 위한 딥러닝 모델이라고 소개가 된,
 
 개요 및 장점, 하이퍼 파라미터 규칙 등에 대해서 작성하려고 합니다.
 
-구조의 경우 [다음 포스팅]()에서 따로 다루도록 하겠습니다.
+구조의 경우 [다음 포스팅](https://bluemumin.github.io/review/2023/01/27/Review-tabnet_struct/)에서 따로 다루도록 하겠습니다.
 
 논문을 보는데 참고한 사이트들 출처도
 
@@ -35,7 +35,7 @@ Tabular(정형) 데이터를 위한 딥러닝 모델이라고 소개가 된,
 
 a. 데이터가 많고, 이미지 등 여러 타입이 있으며, 
 
-모델 갱신이 자주 되어야 때 유용.
+   모델 갱신이 자주 되어야 때 유용.
 
 b. 사용 결과, 논문처럼 ML보다 우수한 정도는 아님. 
 
@@ -47,7 +47,7 @@ e. hyperparamter tuning의 경우, default 설정으로도 충분.
 
 <br/>
 
-1.Introduction
+### 1.Introduction
 
 먼저 딥러닝이 이미지, 텍스트, 음성 등에서 빠른 성과가 나오고 있지만
 
@@ -61,17 +61,17 @@ e. hyperparamter tuning의 경우, default 설정으로도 충분.
 
 a. 정형 데이터는 Hyperplane(초평면) 경계를 가지는 
 
-Manifold에서 결정을 할 때, 더 효울적으로 작동 
+   Manifold에서 결정을 할 때, 더 효울적으로 작동 
 
-(결정 기준이 DL보다 더 적합)
+   (결정 기준이 DL보다 더 적합)
 
 b. 학습이 더 빠르고, 더 쉽게 개발 가능
 
 c. 높은 해석력을 가지고 있음.
 
-Tree 모델의 변수 중요도 -> 딥러닝 보다 해석이 더 용이함
+   Tree 모델의 변수 중요도 -> 딥러닝 보다 해석이 더 용이함
 
-& DL모델은 Overparameterized 되어 사용에 적합하지 않음.
+   & DL모델은 Overparameterized 되어 사용에 적합하지 않음.
 
 <br/>
 
@@ -115,7 +115,7 @@ a. 데이터가 많을때, 계산 비용이 높아져도 성능의 향상이 가
 
 b. 이미지 등 다른 데이터 타입과 함께 학습 가능,
 
-& 필수적인 Feature Engineering 요구하지 않음
+   & 필수적인 Feature Engineering 요구하지 않음
 
 c. Streaming data로 부터 학습 용이 & end-to-end model 구조
 
@@ -135,21 +135,21 @@ c. Streaming data로 부터 학습 용이 & end-to-end model 구조
 
 <br/>
 
-intro 마지막에는 Tabnet을 사용할 때의 장점도 소개하고 있습니다.
+Intro 마지막에는 Tabnet을 사용할 때의 장점도 소개하고 있습니다.
 
 a. raw data 로 end-to-end learning이 가능하다.
 
-(soft feature selection이 모델 안에 적용 되어 있음.)
+   (soft feature selection이 모델 안에 적용 되어 있음.)
 
 b. sequential attention 사용으로 각 step 마다 중요 feature 선별
 
--> 모델 해석, 성능 향상 가능
+   -> 모델 해석, 성능 향상 가능
 
 c. 다양한 도메인, 다른 모델 비교시에 성능이 우수함
 
 d. Masking된 feature 예측 시, 
 
-비지도 학습을 진행해서 우수한 성능을 도출해냄
+   비지도 학습을 진행해서 우수한 성능을 도출해냄
 
 <br/>
 
@@ -161,7 +161,7 @@ d. Masking된 feature 예측 시,
 
 <br/>
 
-2.Related Work
+### 2.Related Work
 
 먼저 feature selection 방식입니다.
 
@@ -201,7 +201,7 @@ mask를 사용하였다는 것입니다.
 
 <br/>
 
-3.Guidelines for hyperparameters
+### 3.Guidelines for hyperparameters
 
 구조는 앞서 언급 한 것 처럼 따로 포스팅을 작성 하였습니다.
 
@@ -211,7 +211,7 @@ test accuracy를 최우선해서 base를 설정한 것이 요지였습니다.
 
 Nd = Na = 64, γ = 1.5, Nsteps = 5, λsparse = 0.0001로 되어있고
 
-feature transformer의 4개 블록의 역할을 2/2로 나누어서 구성 했으며
+feature transformer의 4개 블록의 역할을 2, 2로 나누어서 구성 했으며
 
 Batch size는 16284 (2**14) 입니다.
 
@@ -229,24 +229,24 @@ Batch size는 16284 (2**14) 입니다.
 
 a. Nd = Na 로 두 값이 동일하게 설정을 하는 것을 추천 한다.
 
-해당 값이 매우 높을 경우, 과적합이 발생하고 일반화에 적합하지 않을 수 있다.
+   해당 값이 매우 높을 경우, 과적합이 발생하고 일반화에 적합하지 않을 수 있다.
 
 b. N-steps의 경우 3~10이 적절하다.
 
-정보를 포함한(information-bearing) features가 많을수록
+   정보를 포함한(information-bearing) features가 많을수록
 
-N-steps도 커지는 경향이 있다.
+   N-steps도 커지는 경향이 있다.
 
-단, 이 값이 높아지만 과적합 발생과 일반화에 부적합할 수 있다.
+   단, 이 값이 높아지만 과적합 발생과 일반화에 부적합할 수 있다.
 
 c. γ 은 성능에 중요한 역할을 하며, 
 
-N-steps가 클 경우, 더 큰 γ 값을 선호로 한다. 
+   N-steps가 클 경우, 더 큰 γ 값을 선호로 한다. 
 
 d. batch-size는 큰 것이 좋다. 
 
-메모리 문제가 있다면 전체 데이터의 1~10% 정도로 설정하는 것이 도움이 될 것이다.
+   메모리 문제가 있다면 전체 데이터의 1~10% 정도로 설정하는 것이 도움이 될 것이다.
 
 e. 초기 learning rate는 크게 잡는 것이 중요하다.
 
-수렴될 때 까지, 서서히 감소한다.
+   수렴될 때 까지, 서서히 감소한다.
