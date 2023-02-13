@@ -59,7 +59,7 @@ isme2n:
     # npm:             <username>
     # hackernews:      <username>
     # trello:          <firstnamelastname>
-    # linkedin:        <firstname-lastname-string>
+    linkedin:        https://www.linkedin.com/in/%EA%B2%BD%EB%A1%9D-%EA%B9%80-a1bb6b192/
     # xing:            <firstname_lastname_counter>
     # blogger:         <number>
     # delicious:       <username>
@@ -67,7 +67,7 @@ isme2n:
     # paypal:          <username>
     #email:           mailto:bluedice0504@gmail.com
     instagram :      https://www.instagram.com/rokrok1217/
-    rss:             https://bluemumin.github.io/feed.xml
+    #rss:             https://bluemumin.github.io/feed.xml
     #sub_email:       mailto:bluedice1217@naver.com   
 
 # Another author
