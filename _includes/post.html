@@ -54,18 +54,7 @@
       </script>
     </div>
     <script>
-
     </script>
-
-  <script src="https://utteranc.es/client.js"
-  repo="bluemumin/comments"
-  issue-term="pathname"
-  label="blog_comments"
-  theme="github-light"
-  crossorigin="anonymous"
-  async>
-  </script>
-  
   {% else %}
     {{ post.excerpt }}
     <p class="read-more"><a class="heading" href="{{ post.url | relative_url }}" data-flip="title">Continue reading </a></p>
@@ -101,5 +90,17 @@
         </a>
     </div>
   </div>
+
+  <div>
+    <script src="https://utteranc.es/client.js"
+    repo="bluemumin/comments"
+    issue-term="pathname"
+    label="blog_comments"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </div>
+
   <br/>
 {% endunless %}
