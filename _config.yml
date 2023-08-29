@@ -50,6 +50,14 @@ google_fonts:        Lato
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
 #disqus_shortname:    bluemumin
 
+# site settings
+repository : "bluemumin/bluemumin.github.io"
+comments:
+  provider : "utterances"
+  utterances : 
+    theme : "github-light"
+    issue_term : "pathname"
+
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2019. by bluemumin'
 
