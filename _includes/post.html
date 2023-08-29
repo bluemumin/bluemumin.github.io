@@ -42,6 +42,7 @@
 </script>
 <br/>
       {{ post.content }}
+
       <br/>
       <br/>
       <!-- 블로그-하단-반응형 -->
@@ -52,6 +53,18 @@
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
+
+  <div>
+    <script src="https://utteranc.es/client.js"
+    repo="bluemumin/comments"
+    issue-term="pathname"
+    label="blog_comments"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </div>
+
     </div>
     <script>
     </script>
@@ -90,17 +103,5 @@
         </a>
     </div>
   </div>
-
-  <div>
-    <script src="https://utteranc.es/client.js"
-    repo="bluemumin/comments"
-    issue-term="pathname"
-    label="blog_comments"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-    </script>
-  </div>
-
   <br/>
 {% endunless %}
