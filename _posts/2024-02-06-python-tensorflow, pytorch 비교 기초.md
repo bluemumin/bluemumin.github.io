@@ -3,7 +3,7 @@ layout: post
 title:  "Tensorflow & Pytorch 비교 기초 단계" 
 subtitle:   "Tensorflow & Pytorch 비교 기초 단계"
 categories: Python
-tags: Deep Learning
+tags: DL
 comments: true
 ---
 
@@ -40,7 +40,6 @@ tensorflow에서는 tensorflow.math.negative로 사용된다.
 하단 python 코드는 pytorch version에서 작성된 계산 방법.
 
 ```python
-
 torch_add = torch.add(torch.tensor([1.0, 2.0]), torch.tensor([3.0, 4.0])) # 덧셈
 
 torch_subtract = torch.subtract(torch.tensor([5.0, 6.0]), torch.tensor([2.0, 1.0])) # 뺄셈
@@ -82,7 +81,7 @@ result_log = torch.log(x) #로그값
 
 ### 2. 주요 비교사항
 
-A. 단순 선형 회귀를 tensorflow와 pytorch에서 재현할때의 주요 차이점.
+#### A. 단순 선형 회귀를 tensorflow와 pytorch에서 재현할때의 주요 차이점.
 
 pytorch에서는 torch.tensor에서 requires_grad라는 매개변수로 기울기를 추적할지의 여부를 결정할 수 있다.
 
@@ -98,6 +97,7 @@ pytorch에서는 그래디언트를 자동으로 추적하기에, with torch.no_
 
 in tensorflow
 
+```python
   #값 지정시
   tf.constant(3.0, tf.float32) 
   tf.constant([1.0, 3.0])
@@ -115,11 +115,12 @@ in tensorflow
       W_grad, b_grad = tape.gradient(cost, [W,b]) #gradeint method를 불러서 개별 미분값을 구해서 반환함.
       W.assign_sub(lr*W_grad) #현재 매개변수 값에, 학습률 * 매개변수 개별 미분값 빼기
       b.assign_sub(lr*b_grad)
-
+```
 <br/>
 
 in pytorch
 
+```python
   #값 지정시
   torch.tensor(3.0, dtype=torch.float32)
   torch.tensor([3.0, 4.0], dtype=torch.float32)
@@ -139,3 +140,4 @@ in pytorch
     # 모델의 파라미터 값을 테스트하거나 평가할 때는 그래디언트를 추적할 필요가 없음.
       W -= lr * W_grad #torch에서는 assign_sub 기능이 없어, 직접 빼는 방법 사용함.
       b -= lr * b_grad
+```
