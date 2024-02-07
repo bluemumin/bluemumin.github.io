@@ -85,13 +85,15 @@ result_log = torch.log(x) #로그값
 
 pytorch에서는 torch.tensor에서 requires_grad라는 매개변수로 기울기를 추적할지의 여부를 결정할 수 있다.
 
+단순한 선형 회귀의 매개변수를 갱신하기 위한 예제를 하는 아래의 코드에서
+
 그래서 매개변수를 갱신할때도, tensorflow는 with tf.GradientTape() as tape:를 써서
 
 식 -> cost -> 개별 미분값 -> assign_sub를 통한, 기울기 * 개별 미분값 반영을 반복하지만
 
-pytorch에서는 그래디언트를 자동으로 추적하기에, with torch.no_grad():를 써서 추적하지 않도록 설정하고
+pytorch에서는 그래디언트를 자동으로 추적하기에, 이를 굳이 재현하자면은
 
-이를 직접 빼는 방식을 사용한다.
+with torch.no_grad():를 써서 추적하지 않도록 설정하고 이를 직접 빼는 방식을 사용한다.
 
 <br/>
 
@@ -134,10 +136,149 @@ in pytorch
     hyp = W * x_train + b
     cost = torch.mean((hyp - y_train)**2)
 
-    W_grad, b_grad = torch.autograd.grad(cost, [W, b]) # 그래디언트 계산 autograd.grad
+    W_grad, b_grad = torch.autograd.grad(cost, [W, b]) # 자동 미분으로 그래디언트 계산 autograd.grad 
 
     with torch.no_grad(): #pytorch에서 파라미터 업데이트 시, 그레디언트를 추적하지 않도록 설정하는 블록
     # 모델의 파라미터 값을 테스트하거나 평가할 때는 그래디언트를 추적할 필요가 없음.
       W -= lr * W_grad #torch에서는 assign_sub 기능이 없어, 직접 빼는 방법 사용함.
       b -= lr * b_grad
 ```
+
+<br/>
+
+#### B. 실제 모델 활용시 차이점.
+
+전체 비교 작업을 한 코드의 경우,
+
+tensorflow 예시 코드가 전반적인 딥러닝 구조를 이해하기 위해, 
+
+직접 함수를 생성해서 구현한 경우가 많아서
+
+pytorch가 더 간결해 보일수 있다.
+
+예시 데이터는 MNIST 데이터에 대한 softmax 방식 구현 내용 중 일부이다.
+
+<br/>
+
+in pytorch
+
+```python
+  import torch.nn.functional as F 
+
+  class Net(torch.nn.Module):
+
+    def __init__(self):
+        super(Net, self).__init__()
+        self.l1 = torch.nn.Linear(784,520)
+        self.l2 = torch.nn.Linear(520,320)
+        self.l3 = torch.nn.Linear(320,240)
+        self.l4 = torch.nn.Linear(240,120)
+        self.l5 = torch.nn.Linear(120,10)
+        
+    def forward(self, x):
+        x = x.view(-1, 784) # Flatten the data (n, 1, 28, 28)-> (n, 784)
+        x = F.relu(self.l1(x))
+        x = F.relu(self.l2(x))
+        x = F.relu(self.l3(x))
+        x = F.relu(self.l4(x))
+        return self.l5(x)
+
+  model = Net()
+  model.to(device)
+  criterion = torch.nn.CrossEntropyLoss() # Softmax + CrossEntropy (logSoftmax + NLLLoss)
+  optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.5)
+
+```
+in tensorflow
+
+```python
+
+  class Net(tf.keras.Model):
+      def __init__(self):
+          super(Net, self).__init__()
+          self.flatten = tf.keras.layers.Flatten(input_shape=(28, 28))
+          self.l1 = tf.keras.layers.Dense(520, activation='relu')
+          self.l2 = tf.keras.layers.Dense(320, activation='relu')
+          self.l3 = tf.keras.layers.Dense(240, activation='relu')
+          self.l4 = tf.keras.layers.Dense(120, activation='relu')
+          self.l5 = tf.keras.layers.Dense(10)
+
+      def call(self, x):
+          x = self.flatten(x)
+          x = self.l1(x)
+          x = self.l2(x)
+          x = self.l3(x)
+          x = self.l4(x)
+          return self.l5(x)
+
+  # Instantiate the model
+  model = Net()
+
+  # Compile the model
+  model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.01, momentum=0.5),
+                loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                metrics=['accuracy'])
+
+```
+일단 해당 버전에서는 pytorch에서는 모델을 생성하고, 
+
+device라는 사전에 cpu인지 gpu 인지 지정한 장치로 이동을 시켜서 향후 모델을 구동한다.
+
+반면에 tensorflow는 model을 할당하고 compile을 통해서, 
+
+모델의 구성 요소를 지정할 수 있도록 한다.
+
+그리고 모델 구축의 경우도, pytorch는 먼저 Linear를 통해서 차원변환을 정의하고
+
+그 층을 forward를 할 때 relu를 추가하지만
+
+tensorflow에서는 층 구성 당시에, activation까지 정의할 수 있다. 
+
+마지막으로 tensorflow는 Flatten층을 이용해서, input_shape를 넣고 펴줄수 있다.
+
+torch에서는 .view(-1, 원하는 값) 을 통해 변환이 가능한 듯 하다.
+
+<br/>
+
+그 다음으로는 모델 학습과 평가 방법 코드 중 일부이다.
+
+
+in pytorch
+
+```python
+
+  optimizer.zero_grad()  # 이전에 계산된 그래디언트를 초기화
+  output = model(data)
+  loss = criterion(output, target)
+  loss.backward()  # 손실에 대한 역전파 수행
+  optimizer.step()  # 옵티마이저를 사용하여 파라미터 업데이트
+
+```
+
+in tensorflow
+
+```python
+
+  logits = model(images, training=True) #dropout 적용
+  loss = tf.reduce_mean(tf.keras.losses.categorical_crossentropy(y_pred = logits,
+                                                                y_true = labels, from_logits = True))
+  def grad(model, images, labels):
+    with tf.GradientTape() as tape:
+      loss = loss_fn(model, images, labels)
+    return tape.gradient(loss, model.variables)             
+
+  def train(model, images, labels):
+    grads = grad(model, images, labels)
+    optimizer.apply_gradients(zip(grads, model.trainable_variables))                                                 
+
+```
+pytorch에서는 이전 그래디언트를 초기화하고, 모델을 통해 예측하고,
+
+해당 값을 통해 loss 계산 후, 역전파를 수행한다.
+
+그리고 이를 옵티마이저를 통해 업데이트 하면서 이를 반복한다.
+
+tensorflow의 경우는, 이를 직접 구현한 예시이지만
+
+동일하게 예측 후, loss를 구하고, 이 그래디언트를 apply_gradients를 통해서 반영한다.
+
