@@ -63,6 +63,7 @@ class MNISTModel(tf.keras.Model):
 
 <br/>
 
+in pytorch
 
 ```python
 class Net(torch.nn.Module):
