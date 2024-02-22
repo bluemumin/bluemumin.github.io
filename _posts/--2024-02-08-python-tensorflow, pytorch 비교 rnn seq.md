@@ -7,7 +7,7 @@ tags: DL
 comments: true
 ---
 
-## CNN 모델 코드를 Tensorflow와 Pytorch에서 비교한 게시물 입니다.
+## RNN 모델의 Encoder / Decoder 코드를 Tensorflow와 Pytorch에서 비교한 게시물 입니다.
 
 <br/>
 
@@ -17,7 +17,7 @@ Main Base : [Tensorflow 실습 코드 출처](https://github.com/hunkim/DeepLear
 
 비교용 Base : [Pytorch 실습 코드 출처](https://github.com/hunkim/PyTorchZeroToAll/tree/master)
 
-or pytorch 2.x version 따로 작성 후 비교.
+or pytorch 2.2.0+cpu version에서 오류 수정 한 버전으로 비교.
 
 전체 파일 내용은 [추후 추가 링크]() 확인 가능.
 
@@ -25,11 +25,15 @@ or pytorch 2.x version 따로 작성 후 비교.
 
 <br/>
 
-### 1. RNN 기초
+### 1. Encoder
 
 in tensorflow
 
 ```python
+
+def gru(units):
+    return tf.keras.layers.GRU(units, return_sequences=True,
+                              return_state=True, recurrent_initializer = 'glorot_uniform')
 
 class Encoder(tf.keras.Model):
     def __init__(self, vocab_size, embedding_dim, enc_units, batch_size):
@@ -47,10 +51,6 @@ class Encoder(tf.keras.Model):
     
     def initialize_hidden_state(self):
         return tf.zeros((self.batch_size, self.enc_units))
-
-def gru(units):
-    return tf.keras.layers.GRU(units, return_sequences=True,
-                              return_state=True, recurrent_initializer = 'glorot_uniform')
 
 ```
 
@@ -82,15 +82,25 @@ class EncoderRNN(nn.Module):
     def init_hidden(self):
         # (num_layers * num_directions, batch, hidden_size)
         return cuda_variable(torch.zeros(self.n_layers, 1, self.hidden_size))
-
+        '''
+        num_layers x batch_size x hidden_size인 모든 요소가 0인 텐서를 생성
+        순환 신경망의 초기 hidden state 나타내는데 사용
+        일반적으로 모든 값을 0으로 초기화 후, 시작하는 것이 일반적인 초기화 방법.
+        모델의 학습이 시작되면서 역전파에 의해 이 값이 조정될 것.
+        '''
 ```
 
 <br/>
 
+### 2. Decoder
 
 in tensorflow
 
 ```python
+
+def gru(units):
+    return tf.keras.layers.GRU(units, return_sequences=True,
+                              return_state=True, recurrent_initializer = 'glorot_uniform')
 
 class Decoder(tf.keras.Model):
     def __init__(self, vocab_size, embedding_dim, dec_units, batch_size):
@@ -149,6 +159,7 @@ class DecoderRNN(nn.Module):
 
 <br/>
 
+### 3. 학습 방법
 
 in tensorflow
 
@@ -226,6 +237,7 @@ for epoch in range(1, N_EPOCH + 1):
 ```
 <br/>
 
+### 4. 예측 및 평가
 
 in tensorflow
 
@@ -266,46 +278,6 @@ print(result)
 
 <br/>
 
-
- in tensorflow
-
-
-```python
-def evaluate(sentence, encoder, decoder, inp_lang, targ_lang, max_length_inp, max_length_targ):
-    attention_plot = np.zeros((max_length_targ, max_length_inp))
-    
-    inputs = [inp_lang[i] for i in sentence.split(' ')]
-    inputs = pad_sequences([inputs], maxlen=max_length_inp, padding='post')
-    inputs = tf.convert_to_tensor(inputs)
-    
-    result = ''
-    
-    hidden = [tf.zeros((1,units))]
-    enc_out, enc_hidden = encoder(inputs, hidden)
-    dec_hidden = enc_hidden
-    dec_input = tf.expand_dims([targ_lang['<bos>']], 0)
-    
-    for tt in range(max_length_targ):
-        predictions, dec_hidden, attention_weights = decoder(dec_input, dec_hidden, enc_out)
-        
-        attention_weights = tf.reshape(attention_weights, (-1, ))
-        attention_plot[tt] = attention_weights.numpy()
-        
-        predicted_id = tf.argmax(predictions[0]).numpy()
-        result += idx2target[predicted_id] + ' '
-        
-        if idx2target.get(predicted_id) == '<eos>':
-            return result, sentence, attention_plot
-        
-        dec_input = tf.expand_dims([predicted_id], 0)
-    
-    return result, sentence, attention_plot
-
-```
-
-
-<br/>
-
 in pytorch
 
 ```python
@@ -343,12 +315,38 @@ def test():
 in tensorflow
 
 ```python
-def translate(sentence, encoder, decoder, inp_lang, targ_lang, max_length_inp, max_length_targ):
-    result, sentence, attention_plot = evaluate(sentence, encoder, decoder, 
-                                                inp_lang, targ_lang, max_length_inp, max_length_targ)
-    print('Input : {}'.format(sentence))
-    print('Predicted translation: {}'.format(result))
+
+
+def evaluate(sentence, encoder, decoder, inp_lang, targ_lang, max_length_inp, max_length_targ):
+    attention_plot = np.zeros((max_length_targ, max_length_inp))
     
+    inputs = [inp_lang[i] for i in sentence.split(' ')]
+    inputs = pad_sequences([inputs], maxlen=max_length_inp, padding='post')
+    inputs = tf.convert_to_tensor(inputs)
+    
+    result = ''
+    
+    hidden = [tf.zeros((1,units))]
+    enc_out, enc_hidden = encoder(inputs, hidden)
+    dec_hidden = enc_hidden
+    dec_input = tf.expand_dims([targ_lang['<bos>']], 0)
+    
+    for tt in range(max_length_targ):
+        predictions, dec_hidden, attention_weights = decoder(dec_input, dec_hidden, enc_out)
+        
+        attention_weights = tf.reshape(attention_weights, (-1, ))
+        attention_plot[tt] = attention_weights.numpy()
+        
+        predicted_id = tf.argmax(predictions[0]).numpy()
+        result += idx2target[predicted_id] + ' '
+        
+        if idx2target.get(predicted_id) == '<eos>':
+            return result, sentence, attention_plot
+        
+        dec_input = tf.expand_dims([predicted_id], 0)
+    
+    return result, sentence, attention_plot
+
 ```
 
 <br/>

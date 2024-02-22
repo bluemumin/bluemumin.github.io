@@ -25,38 +25,16 @@ or pytorch 2.x version 따로 작성 후 비교.
 
 <br/>
 
-### 1. RNN 기초
+### 1. with Attention
 
-in tensorflow
+ attention 매커니즘의 경우, encoder에서는 추가되는 것이 없고
 
-```python
+ Decoder에서 추가 된다.
 
-class Encoder(tf.keras.Model):
-    def __init__(self, vocab_size, embedding_dim, enc_units, batch_size):
-        super(Encoder, self).__init__()
-        self.batch_size = batch_size
-        self.enc_units = enc_units
-        self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)
-        self.gru = gru(self.enc_units)
-        
-    def call(self, x, hidden):
-        x = self.embedding(x)
-        output, state = self.gru(x, initial_state = hidden)
-        
-        return output, state
-    
-    def initialize_hidden_state(self):
-        return tf.zeros((self.batch_size, self.enc_units))
-
-def gru(units):
-    return tf.keras.layers.GRU(units, return_sequences=True,
-                              return_state=True, recurrent_initializer = 'glorot_uniform')
-
-```
 
 <br/>
 
-in pytorch
+in tensorflow
 
 ```python
 
@@ -126,10 +104,8 @@ class AttnDecoderRNN(nn.Module):
         rnn_input = self.embedding(word_input).view(1, 1, -1)  # S=1 x B x I
         rnn_output, hidden = self.gru(rnn_input, last_hidden)
 
-        attn_weights = self.get_att_weight(
-            rnn_output.squeeze(0), encoder_hiddens)
-        context = attn_weights.bmm(
-            encoder_hiddens.transpose(0, 1))  # B x S(=1) x I
+        attn_weights = self.get_att_weight(rnn_output.squeeze(0), encoder_hiddens)
+        context = attn_weights.bmm(encoder_hiddens.transpose(0, 1))  # B x S(=1) x I
 
         rnn_output = rnn_output.squeeze(0)  # S(=1) x B x I -> B x I
         context = context.squeeze(1)  # B x S(=1) x I -> B x I

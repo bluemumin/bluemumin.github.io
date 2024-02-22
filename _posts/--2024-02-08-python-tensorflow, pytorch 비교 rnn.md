@@ -7,7 +7,7 @@ tags: DL
 comments: true
 ---
 
-## CNN 모델 코드를 Tensorflow와 Pytorch에서 비교한 게시물 입니다.
+## RNN 기본 모델 코드를 Tensorflow와 Pytorch에서 비교한 게시물 입니다.
 
 <br/>
 
@@ -27,41 +27,11 @@ or pytorch 2.x version 따로 작성 후 비교.
 
 ### 1. RNN 기초
 
-in tensorflow
-
-```python
-
-hidden_size = 2
-rnn = tf.keras.layers.SimpleRNN(units=hidden_size, return_sequences=True, return_state=True)
-outputs, states = rnn(x_data)
-
-```
+먼저 tensorflow에서의 RNN 코드이다.
 
 <br/>
-
-in pytorch
-
-```python
-
-cell = torch.nn.RNN(input_size=4, hidden_size=2, batch_first=True)
-
-hidden = torch.randn(1,1,2)
-
-
-#하나만 넣어보는 버전
-inputs = torch.Tensor([h,e,l,l,o])
-
-for one in inputs:
-    one = one.view(1,1,-1)
-    out, hidden = cell(one, hidden)
-
-```
-
-<br/>
-
 
  in tensorflow
-
 
 ```python
 
@@ -70,29 +40,83 @@ hidden_dims = [10, 10]
 
 input_dim = len(char2idx)
 output_dim = len(char2idx)
-one_hot = np.eye(len(char2idx))
+one_hot = np.eye(len(char2idx)) #N×N 크기의 단위 행렬(identity matrix)을 생성
 
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Embedding(input_dim = input_dim, output_dim = output_dim,
                                    trainable=False, mask_zero=True, input_length=max_sequence,
                                    embeddings_initializer=tf.keras.initializers.Constant(one_hot)))
+#trainable은 임베딩 가중치를 훈련 가능하게 할지 여부를 결정, False로 설정 -> 훈련 중에 업데이트되지 않음. 
 model.add(tf.keras.layers.SimpleRNN(units=hidden_dims[0], return_sequences=True))
-model.add(tf.keras.layers.TimeDistributed(tf.keras.layers.Dropout(rate=0.2)))
+model.add(tf.keras.layers.TimeDistributed(tf.keras.layers.Dropout(rate=0.2))) #dropout을 시간 단계별로 적용
 model.add(tf.keras.layers.SimpleRNN(units=hidden_dims[1]))
 model.add(tf.keras.layers.Dropout(rate=0.2))
 model.add(tf.keras.layers.Dense(units=num_classes))
+```
 
+<br/>
 
+만약 tensorflow에서 순환신겸망을 양방향으로 구축하고 싶다면 아래와 같이
+
+Bidirectional 층을 추가해주어야 합니다.
+
+```python
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Embedding(input_dim = input_dim, output_dim = output_dim, mask_zero = True,
                                    trainable=False, input_length = max_sequence,
                                    embeddings_initializer = tf.keras.initializers.Constant(one_hot)))
-model.add(tf.keras.layers.Bidirectional(tf.keras.layers.SimpleRNN(units=hidden_dim, return_sequences=True)))
+model.add(tf.keras.layers.Bidirectional(tf.keras.layers.SimpleRNN(units=hidden_dim, return_sequences=True))) #양방향 순환 신경망
 model.add(tf.keras.layers.TimeDistributed(tf.keras.layers.Dense(units=num_classes)))
+```
 
+<br/>
 
+그 다음은 pytorch에서의 모델 구축이다.
 
+순환신겸망을 양방향으로 구축하고 싶다면 
 
+bidirectional=True 옵션을 지정하면 된다.
+
+ in pytorch
+
+```python
+
+class RNN(torch.nn.Module):
+    
+    def __init__(self, num_classes, input_size, hidden_size, num_layers):
+        super(RNN, self).__init__()
+        
+        self.num_classes = num_classes
+        self.num_layers = num_layers
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.sequence_length = sequence_length
+        
+        self.rnn = torch.nn.RNN(input_size = 5,
+                               hidden_size = 5,
+                               batch_first = True) #bidirectional=True
+        
+    def forward(self, x):
+        h_0 = torch.zeros(
+            self.num_layers, x.size(0), self.hidden_size)
+        
+        x.view(x.size(0), self.sequence_length, self.input_size) # Reshape input (batch, sequence, input)
+        
+        out, _ = self.rnn(x, h_0)
+        return out.view(-1, num_classes)
+```
+
+<br/>
+
+### 1-2. 모델 학습 코드
+
+그리고 학습을 원한다면, epoch 수 만큼 반복해가면서 gradient를 감소시키는 방향으로
+
+모델을 학습시키면 된다.
+
+in tensorflow
+
+```python
 tr_loss_hist = []
 
 for epoch in range(epochs):
@@ -109,65 +133,12 @@ for epoch in range(epochs):
     else:
         avg_tr_loss /= tr_step
         tr_loss_hist.append(avg_tr_loss)
-
-
 ```
 
-
-
- in pytorch
+in pytorch
 
 ```python
-
-class Model(torch.nn.Module):
-
-    def __init__(self):
-        super(Model, self).__init__()
-        self.rnn = torch.nn.RNN(input_size=input_size,
-                                hidden_size=hidden_size,
-                                batch_first=True)
-        
-    def forward(self, hidden, x):
-        x = x.view(batch_size, sequence_length, input_size) # Reshape input (batch first)
-        
-        out, hidden = self.rnn(x, hidden) # hidden: (num_layers * num_directions, batch, hidden_size)
-        return hidden, out.view(-1, num_classes)
-    
-    def init_hidden(self): 
-        return torch.zeros(num_layers, batch_size, hidden_size) 
-    '''
-    num_layers x batch_size x hidden_size인 모든 요소가 0인 텐서를 생성
-    순환 신경망의 초기 hidden state 나타내는데 사용
-    일반적으로 모든 값을 0으로 초기화 후, 시작하는 것이 일반적인 초기화 방법.
-    모델의 학습이 시작되면서 역전파에 의해 이 값이 조정될 것.
-    '''
-
-class RNN(torch.nn.Module):
-    
-    def __init__(self, num_classes, input_size, hidden_size, num_layers):
-        super(RNN, self).__init__()
-        
-        self.num_classes = num_classes
-        self.num_layers = num_layers
-        self.input_size = input_size
-        self.hidden_size = hidden_size
-        self.sequence_length = sequence_length
-        
-        self.rnn = torch.nn.RNN(input_size = 5,
-                               hidden_size = 5,
-                               batch_first = True)
-        
-    def forward(self, x):
-        h_0 = torch.zeros(
-            self.num_layers, x.size(0), self.hidden_size)
-        
-        x.view(x.size(0), self.sequence_length, self.input_size) # Reshape input (batch, sequence, input)
-        
-        out, _ = self.rnn(x, h_0)
-        return out.view(-1, num_classes)
-    
 rnn = RNN(num_classes, input_size, hidden_size, num_layers)  
-
 
 criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(rnn.parameters(), lr=0.1)
@@ -182,8 +153,7 @@ for epoch in range(20):
     idx = idx.data.numpy()
     result_str = [idx2char[c] for c in idx.squeeze()] 
     # .squeeze( : 텐서 크기 줄이기 -> 차원크기 1인 차원 제거
-    # ex) (1, 2, 3)과 같은 크기의 텐서를 (2, 3)으로 바꿔줍니다.
-
-
-
+    # ex) (1, 2, 3)과 같은 크기의 텐서를 (2, 3)으로 변경.
 ```
+
+### cf) 양방향 순환 신경망 학습 방식
