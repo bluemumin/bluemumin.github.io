@@ -13,13 +13,13 @@ comments: true
 
 tensorflow와 pytorch를 동시에 사용하기 위해서, 
 
-Main Base : [Tensorflow 실습 코드 출처](https://github.com/hunkim/DeepLearningZeroToAll/tree/master/tf2)
+Main Base : [Tensorflow 실습 코드 출처](https://github.com/deeplearningzerotoall/TensorFlow/tree/master/tf_2.x)
 
 비교용 Base : [Pytorch 실습 코드 출처](https://github.com/hunkim/PyTorchZeroToAll/tree/master)
 
-or pytorch 2.x version 따로 작성 후 비교.
+or pytorch 2.2.0+cpu version에서 오류 수정 한 버전으로 비교.
 
-전체 파일 내용은 [추후 추가 링크]() 확인 가능.
+전체 파일 내용은 [tensorflow_pytorch_comaprison](https://github.com/bluemumin/tensorflow_pytorch_comparison) 확인 가능.
 
 해당 블로그에는 비교 내용 작성.
 
