@@ -3,7 +3,7 @@ layout: post
 title:  "kbo 다음 시즌 타자 성적(OPS) 예측 모델"
 subtitle:   "kbo 다음 시즌 타자 성적(OPS) 예측 모델"
 categories: Project
-tags: University
+tags: Competition
 comments: true
 ---
 
