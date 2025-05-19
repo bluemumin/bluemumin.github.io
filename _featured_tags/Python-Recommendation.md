@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Tip
-slug: Tip
+title: 추천시스템
+slug: RS
 category: Python
 menu: false
-order: 7
+order: 2
 ---

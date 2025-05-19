@@ -4,5 +4,5 @@ title: Study
 slug: Study
 category: Python
 menu: false
-order: 3
+order: 5
 ---
