@@ -2,8 +2,8 @@
 layout: post
 title:  "Tabnet 논문 해석하기"
 subtitle:   "Tabnet 논문 해석하기"
-categories: review
-tags: 논문
+categories: DL
+tags: tabular
 comments: true
 ---
 

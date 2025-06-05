@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: blog
-slug: blog
+title: git
+slug: git
 category: Github
 menu: false
-order: 2
+order: 1
 ---

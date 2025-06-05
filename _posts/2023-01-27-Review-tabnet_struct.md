@@ -2,8 +2,8 @@
 layout: post
 title:  "Tabnet 구조 Part"
 subtitle:   "Tabnet 구조 Part"
-categories: review
-tags: 논문
+categories: DL
+tags: tabular
 comments: true
 ---
 

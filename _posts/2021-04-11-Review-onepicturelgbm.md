@@ -2,8 +2,8 @@
 layout: post
 title:  "한 장으로 보는 LightGBM 논문 요약"
 subtitle:   "한 장으로 보는 LightGBM 논문 요약"
-categories: review
-tags: 논문
+categories: Python
+tags: ML
 comments: true
 ---
 
