@@ -2,8 +2,8 @@
 layout: post
 title:  "Tensorflow & Pytorch 비교 RNN" 
 subtitle:   "Tensorflow & Pytorch 비교 RNN"
-categories: Python
-tags: DL
+categories: DL
+tags: basic
 comments: true
 ---
 
@@ -27,11 +27,17 @@ or pytorch 2.2.0+cpu version에서 오류 수정 한 버전으로 비교.
 
 ### 1. RNN 기초
 
-먼저 tensorflow에서의 RNN 코드이다.
-
 <br/>
 
- in tensorflow
+#### in tensorflow
+
+먼저 tensorflow에서의 RNN 코드이다.
+
+TensorFlow에서는 `tf.keras.Sequential` 을 이용해 간결하게 RNN 구조를 정의할 수 있다.
+
+임베딩 가중치를 one-hot 형태로 고정하고, 
+
+이후 `SimpleRNN`, `Dropout`, `Dense` 층을 쌓아 모델을 구성한다.
 
 ```python
 
@@ -71,13 +77,19 @@ model.add(tf.keras.layers.TimeDistributed(tf.keras.layers.Dense(units=num_classe
 
 <br/>
 
+#### in pytorch
+
 그 다음은 pytorch에서의 모델 구축이다.
+
+PyTorch에서는 nn.Module을 상속받아 클래스로 모델을 구현한다.
+
+입력은 (batch, sequence_length, input_size) 형태를 가진다.
 
 순환신겸망을 양방향으로 구축하고 싶다면 
 
 bidirectional=True 옵션을 지정하면 된다.
 
- in pytorch
+<br/>
 
 ```python
 
@@ -114,7 +126,13 @@ class RNN(torch.nn.Module):
 
 모델을 학습시키면 된다.
 
-in tensorflow
+<br/>
+
+#### in tensorflow
+
+TensorFlow는 tf.GradientTape()로 자동 미분을 처리하고, 
+
+apply_gradients()를 통해 파라미터를 갱신합니다.
 
 ```python
 tr_loss_hist = []
@@ -135,7 +153,13 @@ for epoch in range(epochs):
         tr_loss_hist.append(avg_tr_loss)
 ```
 
-in pytorch
+<br/>
+
+#### in pytorch
+
+PyTorch는 직접 .backward()로 기울기를 계산하고, 
+
+.step()으로 파라미터를 업데이트합니다.
 
 ```python
 rnn = RNN(num_classes, input_size, hidden_size, num_layers)  
@@ -155,5 +179,3 @@ for epoch in range(20):
     # .squeeze( : 텐서 크기 줄이기 -> 차원크기 1인 차원 제거
     # ex) (1, 2, 3)과 같은 크기의 텐서를 (2, 3)으로 변경.
 ```
-
-### cf) 양방향 순환 신경망 학습 방식
