@@ -2,8 +2,8 @@
 layout: post
 title:  "Tensorflow & Pytorch 비교 CNN" 
 subtitle:   "Tensorflow & Pytorch 비교 CNN"
-categories: Python
-tags: DL
+categories: DL
+tags: basic
 comments: true
 ---
 

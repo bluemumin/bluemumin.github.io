@@ -2,8 +2,8 @@
 layout: post
 title:  "Tensorflow & Pytorch 비교 기초 단계" 
 subtitle:   "Tensorflow & Pytorch 비교 기초 단계"
-categories: Python
-tags: DL
+categories: DL
+tags: basic
 comments: true
 ---
 
