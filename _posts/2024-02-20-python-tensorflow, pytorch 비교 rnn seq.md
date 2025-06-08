@@ -25,7 +25,7 @@ or pytorch 2.2.0+cpu version에서 오류 수정 한 버전으로 비교.
 
 <br/>
 
-### 개요
+### 1. 개요
 
 기계 번역, 챗봇, 문장 요약 등 다양한 자연어처리(NLP) 과제에서 
 
@@ -39,6 +39,8 @@ Seq2Seq 모델을 어떻게 구현하고 학습하는지를 비교하고자 합�
 
 ### 2. Encoder
 
+<br/>
+
 #### In tensorflow
 
 TensorFlow에서는 `tf.keras.Model` 클래스를 상속하여 
@@ -49,13 +51,12 @@ TensorFlow에서는 `tf.keras.Model` 클래스를 상속하여
 
 context vector로 변환됩니다.
 
-<br/>
-
 ```python
 
 def gru(units):
     return tf.keras.layers.GRU(units, return_sequences=True,
-                              return_state=True, recurrent_initializer = 'glorot_uniform')
+                              return_state=True, 
+                              recurrent_initializer = 'glorot_uniform')
 
 class Encoder(tf.keras.Model):
     def __init__(self, vocab_size, embedding_dim, enc_units, batch_size):
@@ -130,6 +131,8 @@ class EncoderRNN(nn.Module):
 
 ### 3. Decoder
 
+<br/>
+
 #### in tensorflow
 
 GRU의 출력은 Dense 층을 거쳐 vocab size로 매핑
@@ -140,7 +143,8 @@ Teacher Forcing 방식으로 다음 입력을 실제 target으로 사용
 
 def gru(units):
     return tf.keras.layers.GRU(units, return_sequences=True,
-                              return_state=True, recurrent_initializer = 'glorot_uniform')
+                              return_state=True, 
+                              recurrent_initializer = 'glorot_uniform')
 
 class Decoder(tf.keras.Model):
     def __init__(self, vocab_size, embedding_dim, dec_units, batch_size):
@@ -203,7 +207,9 @@ class DecoderRNN(nn.Module):
 
 <br/>
 
-### 3. 학습 방법
+### 4. 학습 방법
+
+<br/>
 
 #### in tensorflow
 
@@ -296,6 +302,8 @@ for epoch in range(1, N_EPOCH + 1):
 #### 예측
 
 #### in tensorflow
+
+<br/>
 
 A. 입력 문장 전처리
 
@@ -398,6 +406,8 @@ def test():
 <br/>
 
 #### 평가
+
+<br/>
 
 #### in tensorflow
 
