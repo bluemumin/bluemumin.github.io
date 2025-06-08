@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Tensorflow & Pytorch 비교 RNN" 
-subtitle:   "Tensorflow & Pytorch 비교 RNN"
+title:  "Tensorflow & Pytorch 비교 RNN Seq2Seq" 
+subtitle: "Encoder–Decoder 기반 시퀀스 모델을 TensorFlow와 PyTorch에서 비교"
 categories: Python
 tags: DL
 comments: true
@@ -25,9 +25,31 @@ or pytorch 2.2.0+cpu version에서 오류 수정 한 버전으로 비교.
 
 <br/>
 
-### 1. Encoder
+### 개요
 
-in tensorflow
+기계 번역, 챗봇, 문장 요약 등 다양한 자연어처리(NLP) 과제에서 
+
+`Seq2Seq (Sequence-to-Sequence)` 모델은 핵심적인 역할을 합니다. 
+
+이 글에서는 **TensorFlow**와 **PyTorch** 두 프레임워크에서 
+
+Seq2Seq 모델을 어떻게 구현하고 학습하는지를 비교하고자 합니다.
+
+<br/>
+
+### 2. Encoder
+
+#### In tensorflow
+
+TensorFlow에서는 `tf.keras.Model` 클래스를 상속하여 
+
+`Encoder`를 정의합니다. 
+
+입력 시퀀스는 임베딩 → GRU 계층을 거쳐 
+
+context vector로 변환됩니다.
+
+<br/>
 
 ```python
 
@@ -54,9 +76,19 @@ class Encoder(tf.keras.Model):
 
 ```
 
+    - Embedding 레이어로 단어 벡터화
+
+    - GRU로 시퀀스를 압축
+
+    - initialize_hidden_state()로 초기 hidden state 생성
+
 <br/>
 
-in pytorch
+#### In pytorch
+
+PyTorch는 nn.Module을 상속해 클래스로 구성합니다. 
+
+forward() 메서드 내에서 GRU가 동작합니다.
 
 ```python
 
@@ -90,11 +122,19 @@ class EncoderRNN(nn.Module):
         '''
 ```
 
+    - PyTorch는 (seq_len, batch, input_size) 순서를 기본으로 사용
+
+    - init_hidden() 함수로 hidden state 초기화
+
 <br/>
 
-### 2. Decoder
+### 3. Decoder
 
-in tensorflow
+#### in tensorflow
+
+GRU의 출력은 Dense 층을 거쳐 vocab size로 매핑
+
+Teacher Forcing 방식으로 다음 입력을 실제 target으로 사용
 
 ```python
 
@@ -128,7 +168,11 @@ class Decoder(tf.keras.Model):
 
 <br/>
 
-in pytorch
+#### in pytorch
+
+단일 step 단위로 decoding
+
+학습 시 이전 target 문자/단어를 직접 입력하는 방식 사용 가능
 
 ```python
 
@@ -161,7 +205,11 @@ class DecoderRNN(nn.Module):
 
 ### 3. 학습 방법
 
-in tensorflow
+#### in tensorflow
+
+GradientTape를 이용한 자동 미분
+
+loss 계산 및 gradient 적용은 내부적으로 추상화
 
 ```python
 
@@ -198,7 +246,11 @@ for epoch in range(epochs):
 
 <br/>
 
-in pytorch
+#### in pytorch
+
+명시적인 forward/backward 구조
+
+직관적인 debug 및 학습 조정 가능
 
 ```python
 
@@ -237,9 +289,39 @@ for epoch in range(1, N_EPOCH + 1):
 ```
 <br/>
 
-### 4. 예측 및 평가
+### 5. 예측 및 평가
 
-in tensorflow
+<br/>
+
+#### 예측
+
+#### in tensorflow
+
+A. 입력 문장 전처리
+
+    입력 문장을 띄어쓰기로 나눠서 토큰화하고 정수 인덱스로 변환합니다.
+
+    이후 pad_sequences로 시퀀스를 일정 길이로 패딩합니다.
+
+    텐서로 변환하여 모델 입력 형태로 준비합니다.
+
+B. Encoder 처리
+
+    전처리된 입력 시퀀스를 encoder에 전달하면, 
+
+    전체 시퀀스의 context vector를 담은 hidden state가 반환됩니다.
+
+C. Decoder 처리 (step-by-step)
+
+    <bos> (begin of sentence) 토큰을 첫 입력으로 사용해 디코딩을 시작합니다.
+
+    디코더는 매 스텝마다 다음 단어를 예측하고, 이를 다음 입력으로 사용합니다.
+
+    예측된 인덱스를 다시 단어로 복원하여 결과 문장을 생성합니다.
+
+    <eos> (end of sentence) 토큰이 예측되면 종료됩니다.
+
+<br/>
 
 ```python
 
@@ -278,7 +360,13 @@ print(result)
 
 <br/>
 
-in pytorch
+#### in pytorch
+
+encoder에 입력 시퀀스를 넣고, decoder를 통해 step-by-step 예측을 수행합니다.
+
+내부적으로 attention이나 hidden state 변화, 출력 크기 등을 출력하여 
+
+구조적 이상 여부를 확인합니다.
 
 ```python
 def test():
@@ -307,15 +395,17 @@ def test():
         decoder_attns[0, cc] = decoder_attn.squeeze(0).cpu().data
 
 ```
+<br/>
 
+#### 평가
 
+#### in tensorflow
 
+TensorFlow에서는 argmax를 사용하여 
 
-
-in tensorflow
+확률 분포에서 가장 높은 확률의 단어를 예측에 사용합니다.
 
 ```python
-
 
 def evaluate(sentence, encoder, decoder, inp_lang, targ_lang, max_length_inp, max_length_targ):
     attention_plot = np.zeros((max_length_targ, max_length_inp))
@@ -351,7 +441,11 @@ def evaluate(sentence, encoder, decoder, inp_lang, targ_lang, max_length_inp, ma
 
 <br/>
 
-in pytorch
+#### in pytorch
+
+temperature 를 통한 샘플링 제어
+
+문자 단위 예측 결과 생성
 
 ```python
 
