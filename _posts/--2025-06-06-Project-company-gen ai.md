@@ -3,7 +3,7 @@ layout: post
 title:  "정당 논평과 nlp를 통한 성향 분류"
 subtitle:   "정당 논평과 nlp를 통한 성향 분류"
 categories: Project
-tags: etc
+tags: Company
 comments: true
 ---
 
