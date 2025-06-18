@@ -56,11 +56,11 @@ class Encoder(tf.keras.Model):
     
     def initialize_hidden_state(self):
         return tf.zeros((self.batch_size, self.enc_units))
+```
 
     - 단어 임베딩 → GRU 순으로 처리
 
     - return_sequences=True를 통해 모든 time step의 hidden output 반환 (Attention 계산에 필요)
-```
 
 <br/>
 
